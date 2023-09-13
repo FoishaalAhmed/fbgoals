@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         $this->call(LeagueTablesSeeder::class);
         $this->command->info('Leagues Seeded Successfully!');
+        $this->call(FeaturedMatchTablesSeeder::class);
+        $this->command->info('Featured Matches Seeded Successfully!');
     }
 }
