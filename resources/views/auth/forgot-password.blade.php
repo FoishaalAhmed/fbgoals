@@ -1,6 +1,6 @@
 @extends('auth.layouts.app')
 
-@section('title', __('Login'))
+@section('title', __('Forgot Password'))
 @section('content')
 
     <div class="col-md-8 col-lg-6 col-xl-4">
@@ -41,7 +41,7 @@
 
         <div class="row mt-3">
             <div class="col-12 text-center">
-                <p class="text-white-50">Back to <a href="auth-login.html" class="text-white ms-1"><b>Log in</b></a></p>
+                <p class="text-white-50">{{ __('Back to') }} <a href="{{ route('login') }}" class="text-white ms-1"><b>{{ __('Log in') }}</b></a></p>
             </div> <!-- end col -->
         </div>
         <!-- end row -->
