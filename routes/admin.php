@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FeaturedMatchController;
+use App\Http\Controllers\Admin\FootballMatchController;
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -17,3 +18,4 @@ Route::controller(FeaturedMatchController::class)->prefix('featured-matches')->a
     Route::put('/update/{match}', 'update')->name('update');
 });
 
+Route::resource('matches', FootballMatchController::class);
