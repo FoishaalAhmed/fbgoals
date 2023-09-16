@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Leagues Seeded Successfully!');
         $this->call(FeaturedMatchTablesSeeder::class);
         $this->command->info('Featured Matches Seeded Successfully!');
+        $this->call(TeamTablesSeeder::class);
+        $this->command->info('Featured Matches Seeded Successfully!');
     }
 }
