@@ -63,6 +63,13 @@
                         </a>
                     </li>
 
+                    <li class="menu-item">
+                        <a href="{{ route('admin.socials.edit') }}" class="menu-link">
+                            <span class="menu-icon"><i class="fe-globe"></i></span>
+                            <span class="menu-text"> {{ __('Socials') }} </span>
+                        </a>
+                    </li>
+
                 @endif
 
 
