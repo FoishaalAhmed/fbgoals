@@ -33,7 +33,7 @@ class Social extends Model
         );
 
         $socials
-            ? session()->flash('success', 'Social Links Saved Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Social Links Saved Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 }

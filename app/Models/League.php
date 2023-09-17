@@ -23,7 +23,7 @@ class League extends Model
         $updateLeague    = $league->save();
 
         $updateLeague
-            ? session()->flash('success', 'Leagues Updated Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Leagues Updated Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 }

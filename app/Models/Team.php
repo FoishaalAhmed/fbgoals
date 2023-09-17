@@ -23,7 +23,7 @@ class Team extends Model
         $updateTeam  = $team->save();
 
         $updateTeam
-            ? session()->flash('success', 'Teams Updated Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Teams Updated Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 }

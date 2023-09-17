@@ -15,8 +15,8 @@ class FootballMatch extends Model
 
     public static $validateRule = [
         'matches' => ['required', 'string'],
-        'links.*' => ['nullable', 'string', 'max:555'],
-        'details' => ['nullable', 'string']
+        'details' => ['nullable', 'string'],
+        'links.*' => ['nullable', 'string', 'max:555']
     ];
 
     public function links()
@@ -46,8 +46,8 @@ class FootballMatch extends Model
         }
 
         $storeMatch
-            ? session()->flash('success', 'Match Created Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Match Created Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 
     public function updateMatch(Object $request, Object $match)
@@ -70,8 +70,8 @@ class FootballMatch extends Model
         }
 
         $updateMatch
-            ? session()->flash('success', 'Match Updated Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Match Updated Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 
     public function destroyMatch(Object $match)
@@ -79,7 +79,7 @@ class FootballMatch extends Model
         MatchLink::where('football_match_id', $match->id)->delete();
         $destroyMatch = $match->delete();
         $destroyMatch
-            ? session()->flash('success', 'Match Deleted Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Match Deleted Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 }

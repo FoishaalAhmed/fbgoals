@@ -66,8 +66,6 @@
     </div>
     <!-- END wrapper -->
 
-    @include('backend.layouts.partials.setting')
-
     @include('backend.layouts.partials.script')
 
 </body>

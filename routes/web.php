@@ -24,9 +24,12 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::view('/profile', 'backend.profile')->name('profile');
-    Route::post('/photo-update', [ProfileController::class, 'photo'])->name('profile.photo');
-    Route::post('/password-update', [ProfileController::class, 'password'])->name('profile.password');
-    Route::post('/info-update', [ProfileController::class, 'info'])->name('profile.info');
+
+    Route::controller(ProfileController::class)->prefix('profile')->as('profile.')->group(function () {
+        Route::post('/info-update', 'info')->name('info');
+        Route::post('/photo-update', 'photo')->name('photo');
+        Route::post('/password-update', 'password')->name('password');
+    });
 });
 
 require __DIR__.'/auth.php';

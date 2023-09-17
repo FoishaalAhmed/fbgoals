@@ -23,7 +23,7 @@ class FeaturedMatch extends Model
         $updateFeaturedMatch = $match->save();
 
         $updateFeaturedMatch
-            ? session()->flash('success', 'Match Info Updated Successfully!')
-            : session()->flash('error', 'Something Went Wrong!');
+            ? session()->flash('success', __('Match Info Updated Successfully!'))
+            : session()->flash('error', __('Something Went Wrong!'));
     }
 }

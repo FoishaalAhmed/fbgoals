@@ -87,5 +87,5 @@
         'use strict';
         let matchLink = "{{ __('Match Links') }}";
     </script>
-    <script src="{{ asset('public/customs/admin/match/edit.min.js') }}"></script>
+    <script src="{{ asset('public/assets/backend/js/custom/match/edit.min.js') }}"></script>
 @endsection
