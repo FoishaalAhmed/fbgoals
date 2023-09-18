@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\{
     DashboardController,
     SocialController,
     LeagueController,
+    NewsController,
     TeamController
 };
 
@@ -32,4 +33,5 @@ Route::controller(SocialController::class)->prefix('social')->as('socials.')->gr
     Route::put('/update', 'update')->name('update');
 });
 
+Route::resource('news', NewsController::class);
 Route::resource('matches', FootballMatchController::class);
