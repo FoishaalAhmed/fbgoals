@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('New news'))
+@section('title', __('Update news'))
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/assets/backend/css/tagify.css') }}">
@@ -16,18 +16,19 @@
                 <div class="card">
                     @include('alert')
                     <div class="card-body">
-                        <h4 class="header-title">{{ __('New news') }}</h4>
+                        <h4 class="header-title">{{ __('Update news') }}</h4>
                         <p class="text-muted font-13 mb-4 text-end mt-n4">
                             <a href="{{ route('admin.news.index') }}" class="btn btn-outline-primary waves-effect waves-light"><i class="fe-list"></i> {{ __('All news') }}</a>
                         </p>
-                        <form action="{{ route('admin.news.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.news.update', $news->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-lg-6 mb-3">
                                             <label for="basic-datepicker" class="form-label">{{ __('Date') }}</label>
-                                            <input type="text" name="date" id="basic-datepicker" class="form-control" placeholder="{{ __('Date') }}" required="" value="{{ old('date') }}">
+                                            <input type="text" name="date" id="basic-datepicker" class="form-control" placeholder="{{ __('Date') }}" required="" value="{{ old('date', $news->date) }}">
                                             @error('date')
                                                 <div class="invalid-feedback error">
                                                     {{ $message }}
@@ -36,7 +37,7 @@
                                         </div>
                                         <div class="col-lg-6 mb-3">
                                             <label for="title" class="form-label">{{ __('Title') }}</label>
-                                            <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title') }}">
+                                            <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title', $news->title) }}">
                                             @error('title')
                                                 <div class="invalid-feedback error">
                                                     {{ $message }}
@@ -45,9 +46,21 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-12 mb-3">
+                                        <div class="col-lg-6 mb-3">
                                             <label for="tags" class="form-label">{{ __('Tags') }}</label>
-                                            <input type="text" name="tags" id="tags" class="form-control" placeholder="{{ __('Tags') }}" required="" value="{{ old('tags') }}">
+                                            <input type="text" name="tags" id="tags" class="form-control" placeholder="{{ __('Tags') }}" required="" value="{{ old('tags', $news->tags) }}">
+                                            @error('tags')
+                                                <div class="invalid-feedback error">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <label for="example-select" class="form-label">{{ __('Status') }}</label>
+                                            <select class="form-select" name="status" id="example-select" required="">
+                                                <option value="Published" {{ $news->status == 'Published' ? 'selected' : '' }}>{{ __('Published') }}</option>
+                                                <option value="Unpublished" {{ $news->status == 'Unpublished' ? 'selected' : '' }}>{{ __('Unpublished') }}</option>
+                                            </select>
                                             @error('tags')
                                                 <div class="invalid-feedback error">
                                                     {{ $message }}
@@ -58,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 mb-3">
                                             <label for="content" class="form-label">{{ __('Content') }}</label>
-                                            <textarea name="content" id="editor">{{ old('content') }}</textarea>
+                                            <textarea name="content" id="editor">{{ old('content', $news->tags) }}</textarea>
                                             @error('content')
                                                 <div class="invalid-feedback error">
                                                     {{ $message }}
@@ -69,7 +82,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="card card-border">
-                                        <img class="card-img-top img-fluid" id="news-photo" src="{{ asset('public/images/dummy/news.avif') }}" alt="{{ __('News Image') }}">
+                                        <img class="card-img-top img-fluid" id="news-photo" src="{{ file_exists($news->photo) ? asset($news->photo) : asset('public/images/dummy/news.avif') }}" alt="{{ __('News Image') }}">
                                         <div class="card-body">
                                             <input type="file" name="photo" class="form-control" id="news-photo-input">
                                             @error('photo')

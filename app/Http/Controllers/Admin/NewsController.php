@@ -46,15 +46,16 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
-        //
+        return view('backend.admin.news.edit', compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, News $news)
+    public function update(NewsRequest $request, News $news)
     {
-        //
+        $this->newsObject->updateNews($request, $news);
+        return back();
     }
 
     /**
@@ -62,6 +63,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        //
+        $this->newsObject->destroyNews($news);
+        return back();
     }
 }

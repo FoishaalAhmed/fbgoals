@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\{
     SocialController,
     LeagueController,
     NewsController,
-    TeamController
+    TeamController,
+    UserController
 };
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -33,5 +34,6 @@ Route::controller(SocialController::class)->prefix('social')->as('socials.')->gr
     Route::put('/update', 'update')->name('update');
 });
 
-Route::resource('news', NewsController::class);
-Route::resource('matches', FootballMatchController::class);
+Route::resource('news', NewsController::class)->except('show');
+Route::resource('matches', FootballMatchController::class)->except('show');
+Route::resource('users', UserController::class);
