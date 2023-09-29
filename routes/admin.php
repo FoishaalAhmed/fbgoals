@@ -4,12 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     FeaturedMatchController,
     FootballMatchController,
+    YoutubeVideoController,
     DashboardController,
     SocialController,
     LeagueController,
     NewsController,
     TeamController,
-    UserController
+    UserController,
 };
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -36,4 +37,5 @@ Route::controller(SocialController::class)->prefix('social')->as('socials.')->gr
 
 Route::resource('news', NewsController::class)->except('show');
 Route::resource('matches', FootballMatchController::class)->except('show');
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)->except('show');
+Route::resource('videos', YoutubeVideoController::class)->except('show');

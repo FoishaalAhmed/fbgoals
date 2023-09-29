@@ -51,15 +51,7 @@
                                                 <a href="{{ route('admin.news.edit', $item->id) }}"
                                                     class="btn btn-outline-success waves-effect waves-light"><i
                                                         class="fe-edit"></i></a>
-                                                <a href="javascript:;"
-                                                    onclick="if(confirm('Are You Sure To Delete?')){ event.preventDefault(); getElementById('delete-form-{{ $item->id }}').submit(); } else { event.preventDefault(); }"
-                                                    class="btn btn-outline-danger waves-effect waves-light delete-warning"><i
-                                                        class="fe-delete"></i></a>
-                                                <form action="{{ route('admin.news.destroy', [$item->id]) }}"
-                                                    method="post" id="delete-form-{{ $item->id }}">
-                                                    @csrf
-                                                    {{ method_field('DELETE') }}
-                                                </form>
+                                                <a href="{{ route('admin.news.destroy', [$item->id]) }}" class="btn btn-outline-danger waves-effect waves-light delete-warning"><i class="fe-delete"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
