@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\{
     FootballMatchController,
     YoutubeVideoController,
     DashboardController,
+    SettingController,
     SocialController,
     LeagueController,
     NewsController,
@@ -33,6 +34,11 @@ Route::controller(FeaturedMatchController::class)->prefix('featured-matches')->a
 Route::controller(SocialController::class)->prefix('social')->as('socials.')->group(function () {
     Route::get('', 'edit')->name('edit');
     Route::put('/update', 'update')->name('update');
+});
+
+Route::controller(SettingController::class)->prefix('settings')->as('settings.')->group(function () {
+    Route::get('', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');;
 });
 
 Route::resource('news', NewsController::class)->except('show');
