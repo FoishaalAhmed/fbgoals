@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\{
     DashboardController,
     SettingController,
     SocialController,
+    SeasonController,
     LeagueController,
     PageController,
     NewsController,
@@ -20,6 +21,11 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 Route::controller(LeagueController::class)->prefix('leagues')->as('leagues.')->group(function () {
     Route::get('', 'edit')->name('edit');
     Route::put('/update/{league}', 'update')->name('update');
+});
+
+Route::controller(SeasonController::class)->prefix('seasons')->as('seasons.')->group(function () {
+    Route::get('', 'edit')->name('edit');
+    Route::put('/update/{season}', 'update')->name('update');
 });
 
 Route::controller(TeamController::class)->prefix('teams')->as('teams.')->group(function () {

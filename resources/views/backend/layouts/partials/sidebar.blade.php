@@ -42,6 +42,13 @@
                 </li>
 
                 <li class="menu-item">
+                    <a href="{{ route('admin.seasons.edit') }}" class="menu-link">
+                        <span class="menu-icon"><i class="fe-globe"></i></span>
+                        <span class="menu-text"> {{ __('Seasons') }} </span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
                     <a href="{{ route('admin.teams.edit') }}" class="menu-link">
                         <span class="menu-icon"><i class="fe-globe"></i></span>
                         <span class="menu-text"> {{ __('Teams') }} </span>
