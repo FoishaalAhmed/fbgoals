@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsRequest extends FormRequest
+class PageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,25 +17,23 @@ class NewsRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         $rules = [
             'content' => 'required|string',
-            'tags' => 'required',
-            'date' => 'required|date',
-            'photo' => 'mimes: jpeg,jpg,png,gif,webp|max: 1000|nullable'
+            'position' => 'required|string|in:Header,Footer,Both',
         ];
 
         if ($this->getMethod() == 'POST') {
             return $rules + [
-                'title'    => 'required|string|max:190|unique:news,title',
+                'title'    => 'required|string|max:190|unique:pages,title',
             ];
         } else {
             return $rules + [
-                'title' => 'required|string|max:255|unique:news,title,' . $this->news->id,
-                'status' => 'required|string|max:15|in:Published,Unpublished',
+                'title' => 'required|string|max:255|unique:pages,title,' . $this->page->id,
+                'status' => 'required|string|max:15|in:Active,Inactive',
             ];
         }
     }

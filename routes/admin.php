@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\{
     SettingController,
     SocialController,
     LeagueController,
+    PageController,
     NewsController,
     TeamController,
     UserController,
@@ -41,6 +42,7 @@ Route::controller(SettingController::class)->prefix('settings')->as('settings.')
     Route::post('/store', 'store')->name('store');;
 });
 
+Route::resource('pages', PageController::class)->except('show');
 Route::resource('news', NewsController::class)->except('show');
 Route::resource('matches', FootballMatchController::class)->except('show');
 Route::resource('users', UserController::class)->except('show');

@@ -81,14 +81,18 @@
                     </a>
                 </li>
                 <li class="menu-item">
+                    <a href="{{ route('admin.pages.index') }}" class="menu-link">
+                        <span class="menu-icon"><i class="fe-globe"></i></span>
+                        <span class="menu-text"> {{ __('Pages') }} </span>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ route('admin.settings.create') }}" class="menu-link">
                         <span class="menu-icon"><i class="fe-globe"></i></span>
                         <span class="menu-text"> {{ __('Settings') }} </span>
                     </a>
                 </li>
             @endif
-
-
         </ul>
         <!--- End Menu -->
         <div class="clearfix"></div>
