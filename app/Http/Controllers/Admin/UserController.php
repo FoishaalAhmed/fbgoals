@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -19,7 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        
+        $users = User::oldest('name')->get();
+        return view('backend.admin.users.index', compact('users'));
     }
 
     /**
@@ -27,46 +30,44 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $permissions = Permission::oldest('name')->get(['id', 'name']);
+        return view('backend.admin.users.create', compact('permissions'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        $this->userObject->storeUser($request);
+        return back();
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        $permissions = Permission::oldest('name')->get(['id', 'name']);
+        $permissionArray = DB::table('model_has_permissions')->where('model_id', $user->id)->pluck('permission_id')->toArray();
+        return view('backend.admin.users.edit', compact('permissions', 'user', 'permissionArray'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $this->userObject->updateUser($request, $user);
+        return redirect()->route('admin.users.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $user)
     {
-        //
+        $this->userObject->destroyUser($user);
+        return back();
     }
 }

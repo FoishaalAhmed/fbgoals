@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DB;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
@@ -9,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable
 {
@@ -104,4 +106,78 @@ class User extends Authenticatable
             ? session()->flash('success', __('User Info Updated Successfully!'))
             : session()->flash('error', __('Something Went Wrong!'));
     }
+
+    public function storeUser(object $request)
+    {
+        try {
+            DB::transaction(function() use($request) {
+
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'phone' => $request->phone,
+                    'address' => $request->address,
+                    'password' => Hash::make($request->password),
+                ]);
+
+                $role = Role::whereName('Admin')->first();
+                $user->assignRole($role);
+
+                $permissionArray = [];
+
+                foreach ($request->permission as $key => $permission) {
+                    $permissionArray[] = [$permission];
+                }
+
+                $user->givePermissionTo($permissionArray);
+                session()->flash('success', __('User Created Successfully!'));
+
+            });
+        } catch (\Exception $exception) {
+            session()->flash('success', $exception->getMessage());
+        }
+    }
+
+    public function updateUser(object $request, object $user)
+    {
+        try {
+            DB::transaction(function() use($request, $user) {
+
+                $user->name = $request->name;
+                $user->email = $request->email;
+                $user->phone = $request->phone;
+                $user->address = $request->address;
+                $user->save();
+
+                $permissionArray = [];
+
+                foreach ($request->permission as $key => $permission) {
+                    $permissionArray[] = [$permission];
+                }
+
+                $user->syncPermissions($permissionArray);
+                session()->flash('success', __('User Updated Successfully!'));
+
+            });
+        } catch (\Exception $exception) {
+            session()->flash('success', $exception->getMessage());
+        }
+    }
+
+    public function destroyUser(object $user)
+    {
+        try {
+            DB::transaction(function() use($user) {
+
+                if (file_exists($user->photo)) unlink($user->photo);
+                $user->delete();
+                session()->flash('success', __('User Deleted Successfully!'));
+
+            });
+        } catch (\Exception $exception) {
+            session()->flash('success', $exception->getMessage());
+        }
+    }
+
+
 }
