@@ -5,11 +5,8 @@
     <meta charset="utf-8" />
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
-
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('public/assets/backend/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset(getFavIcon()) }}">
 
     <!-- Theme Config Js -->
     <script src="{{ asset('public/assets/backend/js/head.js') }}"></script>
@@ -41,7 +38,7 @@
 
 
     <footer class="footer footer-alt">
-     <p class="text-white-50"> {{ date('Y') }} &copy; UBold theme by <a href="#" class="text-white-50 fw-bold">Coderthemes</a></p>
+     <p class="text-white-50"> {{ date('Y') }} &copy; {{ settings('name') }} </p>
     </footer>
 
 </body>

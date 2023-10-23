@@ -14,15 +14,31 @@
                         <form action="{{ route('admin.settings.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
-                                <label for="large-logo"
-                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Large Logo') }}</label>
+                                <label for="dark-logo"
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Dark Logo') }}</label>
                                 <div class="col-8 col-xl-4">
-                                    <input type="file" id="large-logo-input" class="form-control" name="large_logo">
+                                    <input type="file" id="dark-logo-input" class="form-control" name="dark_logo">
                                     <p class="font-13 text-muted mb-2 fw-bolder">
                                         {{ __('*Recommended Dimension: 98 px * 20 px') }}</p>
-                                    <img src="{{ asset(largeLogo()) }}" alt="{{ __('Large Logo') }}" class="large-logo"
-                                        id="large-logo-photo">
-                                    @error('large_logo')
+                                    <img src="{{ asset(darkLogo()) }}" alt="{{ __('Dark Logo') }}" class="large-logo"
+                                        id="dark-logo-photo">
+                                    @error('dark_logo')
+                                        <div class="invalid-feedback error">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="light-logo"
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Light Logo') }}</label>
+                                <div class="col-8 col-xl-4">
+                                    <input type="file" id="light-logo-input" class="form-control" name="light_logo">
+                                    <p class="font-13 text-muted mb-2 fw-bolder">
+                                        {{ __('*Recommended Dimension: 98 px * 20 px') }}</p>
+                                    <img src="{{ asset(lightLogo()) }}" alt="{{ __('Light Logo') }}" class="large-logo"
+                                        id="light-logo-photo">
+                                    @error('light_logo')
                                         <div class="invalid-feedback error">
                                             {{ $message }}
                                         </div>
@@ -109,6 +125,18 @@
                                     <input type="text" id="address" class="form-control" name="address"
                                         placeholder="{{ __('Address') }}" value="{{ settings('address') }}">
                                     @error('address')
+                                        <div class="invalid-feedback error">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="google_tracking"
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Google Analytics Tracking Code') }}</label>
+                                <div class="col-8 col-xl-4">
+                                    <textarea name="google_tracking" class="form-control" id="google_tracking" rows="5" placeholder="{{ __('Google Analytics Tracking Code') }}">{{ settings('google_tracking') }}</textarea>
+                                    @error('google_tracking')
                                         <div class="invalid-feedback error">
                                             {{ $message }}
                                         </div>

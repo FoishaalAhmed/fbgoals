@@ -19,8 +19,10 @@ class Setting extends Model
         'name' => ['required', 'string', 'max:190'],
         'email' => ['nullable', 'email', 'string', 'max:190'],
         'phone' => ['nullable', 'string', 'max:190'],
+        'google_tracking' => ['nullable', 'string'],
         'address' => ['nullable', 'string', 'max:190'],
-        'large_logo' => ['nullable', 'mimes:jpeg,jpg,png,gif,webp', 'max:2000'],
+        'light_logo' => ['nullable', 'mimes:jpeg,jpg,png,gif,webp', 'max:2000'],
+        'dark_logo' => ['nullable', 'mimes:jpeg,jpg,png,gif,webp', 'max:2000'],
         'small_logo' => ['nullable', 'mimes:jpeg,jpg,png,gif,webp', 'max:2000'],
         'favicon' => ['nullable', 'mimes:jpeg,jpg,png,gif,webp', 'max:2000'],
     ];
@@ -30,11 +32,11 @@ class Setting extends Model
         try {
             DB::beginTransaction();
 
-            $largeLogoOld = Setting::where(['name' => 'large_logo', 'type' => 'General'])->first()->value;
-            $largeLogo = $request->file('large_logo');
+            $darkLogoOld = Setting::where(['name' => 'dark_logo', 'type' => 'General'])->first()->value;
+            $darkLogo = $request->file('dark_logo');
 
-            if ($largeLogo) {
-                $response = uploadImage($largeLogo, 'public/images/settings/', 'large_logo', $largeLogoOld);
+            if ($darkLogo) {
+                $response = uploadImage($darkLogo, 'public/images/settings/', 'dark_logo', $darkLogoOld);
 
                 if (!$response['status']) {
                     DB::rollBack();
@@ -44,7 +46,24 @@ class Setting extends Model
                     ];
                 }
 
-                Setting::where(['name' => 'large_logo', 'type' => 'General'])->update(['value' => 'public/images/settings/' . $response['file_name']]);
+                Setting::where(['name' => 'dark_logo', 'type' => 'General'])->update(['value' => 'public/images/settings/' . $response['file_name']]);
+            }
+
+            $lightLogoOld = Setting::where(['name' => 'light_logo', 'type' => 'General'])->first()->value;
+            $lightLogo = $request->file('light_logo');
+
+            if ($lightLogo) {
+                $response = uploadImage($lightLogo, 'public/images/settings/', 'light_logo', $lightLogoOld);
+
+                if (!$response['status']) {
+                    DB::rollBack();
+                    return [
+                        'alert' => 'error',
+                        'message' => $response['message']
+                    ];
+                }
+
+                Setting::where(['name' => 'light_logo', 'type' => 'General'])->update(['value' => 'public/images/settings/' . $response['file_name']]);
             }
 
             $smallLogoOld = Setting::where(['name' => 'small_logo', 'type' => 'General'])->first()->value;
@@ -83,6 +102,7 @@ class Setting extends Model
             Setting::where(['name' => 'email', 'type' => 'General'])->update(['value' => $request->email]);
             Setting::where(['name' => 'phone', 'type' => 'General'])->update(['value' => $request->phone]);
             Setting::where(['name' => 'address', 'type' => 'General'])->update(['value' => $request->address]);
+            Setting::where(['name' => 'google_tracking', 'type' => 'General'])->update(['value' => $request->google_tracking]);
 
             DB::commit();
 

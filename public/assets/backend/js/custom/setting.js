@@ -1,8 +1,13 @@
 'use strict';
 
-// preview large logo on change
-$(document).on('change','#large-logo-input', function() {
-    readPicture(this, '#large-logo-photo')
+// preview dark logo on change
+$(document).on('change','#dark-logo-input', function() {
+    readPicture(this, '#dark-logo-photo')
+});
+
+// preview light logo on change
+$(document).on('change','#light-logo-input', function() {
+    readPicture(this, '#light-logo-photo')
 });
 
 // preview small logo on change

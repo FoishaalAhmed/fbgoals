@@ -8,3 +8,7 @@ ClassicEditor
 
 let teams = document.querySelector('input[name=tags]');
 new Tagify(tags);
+
+$(document).on('change','#news-photo-input', function() {
+    readPicture(this, '#news-photo')
+});

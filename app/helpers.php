@@ -112,17 +112,31 @@ if (!function_exists('settings')) {
     }
 }
 
-if (!function_exists('largeLogo')) {
+if (!function_exists('darkLogo')) {
 
     /**
-     * Get system large logo
+     * Get system dark logo
      *
      * @return string
      */
 
-    function largeLogo()
+    function darkLogo()
     {
-        return !empty(settings('large_logo')) && file_exists(settings('large_logo')) ? settings('large_logo') : 'public/images/dummy/logo-light.png';
+        return !empty(settings('dark_logo')) && file_exists(settings('dark_logo')) ? settings('dark_logo') : 'public/images/dummy/logo-light.png';
+    }
+}
+
+if (!function_exists('lightLogo')) {
+
+    /**
+     * Get system light logo
+     *
+     * @return string
+     */
+
+    function lightLogo()
+    {
+        return !empty(settings('light_logo')) && file_exists(settings('light_logo')) ? settings('light_logo') : 'public/images/dummy/logo-light.png';
     }
 }
 
