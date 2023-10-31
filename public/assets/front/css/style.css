@@ -350,6 +350,31 @@ ul.post-meta li,
     width: 90%;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.width-50 {
+    width: 50px;
+}
+
+.color-bcc9ea {
+    color: #bcc9ea;
+}
+
+.float-right {
+    float: right;
+}
+
+.width-28-height-24 {
+    width: 28px;
+    height: 24px;
+}
+
+.height-240{
+    height: 240px;
+}
+
 @media (min-width: 280px) and (max-width: 575px) {
     .logo-img {
         width: 30%;

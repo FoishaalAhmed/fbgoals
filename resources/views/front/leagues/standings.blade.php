@@ -35,8 +35,8 @@
                                                         @foreach ($leagues[0]->league->standings[0] as $standing)
                                                             <tr>
                                                                 <td>{{ $standing->rank }}</td>
-                                                                <td><img src="{{ $standing->team->logo }}" alt=""
-                                                                        style="width: 28px; height: 24px;">
+                                                                <td><img src="{{ $standing->team->logo }}"
+                                                                        class="width-28-height-24">
                                                                     <strong>{{ $standing->team->name }}</strong>
                                                                 </td>
                                                                 <td>{{ $standing->all->played }}</td>
@@ -59,7 +59,7 @@
                     </div>
                     <!--Sidebar Start-->
                     <div class="col-lg-4">
-                        <div class="sidebar" style="margin-bottom: 10px;">
+                        <div class="sidebar mb-10">
                             <!--widget start-->
                             @include('front.upcomingMatch')
                             <!--widget end-->
@@ -76,14 +76,14 @@
                                                     href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                             </h4>
                                             <ul class="news-meta">
-                                                <li><i class="fas fa-calendar-alt"></i>
+                                                <li><i class="fe-calendar"></i>
                                                     {{ date('D M, Y', strtotime($item->date)) }}</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="expand-news-img"><img
                                             src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                            alt=""></div>
+                                        ></div>
                                 </div>
                                 <!--Expand-->
                             @endforeach
@@ -106,7 +106,7 @@
                                                 <span><i class="far fa-clock"></i>
                                                     {{ date('d M, Y', strtotime($item->date)) }} </span>
                                             </div>
-                                            <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg" alt="">
+                                            <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg">
                                         </div>
                                     @endforeach
                                     <div class="buyticket-btn"><a

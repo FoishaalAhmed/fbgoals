@@ -1,325 +1,12 @@
 @extends('layouts.app')
 
 @section('title', "$title")
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/matchdetail.min.css') }}">
+@endsection
+
 @section('content')
-
-    <style>
-        .nav-active {
-            background: #171e36;
-            color: aliceblue;
-            margin: 5px;
-            border: 1px solid aliceblue;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .live-link {
-            background: #374b8f;
-            color: aliceblue;
-            margin-right: 5px;
-            border: 1px solid aliceblue;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .link-section {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-
-        /* .active {
-                                                                        background: #7c79d0;
-                                                                    } */
-
-        .progress {
-            height: .5rem;
-        }
-
-
-        :root {
-            --white: #ffffff;
-            --black: #000000;
-            --blue: #0288d1;
-            --gray: #ebebeb;
-            --box-shadow1: 0px 0px 18px 2px rgba(10, 55, 90, 0.15);
-        }
-
-        :focus {
-            outline: 0px solid transparent !important;
-        }
-
-        .timeline {
-            padding: 50px 0;
-            position: relative;
-        }
-
-        .timeline-nodes {
-            padding-bottom: 25px;
-            position: relative;
-        }
-
-        .timeline-nodes:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline h3,
-        .timeline p {
-            padding: 5px 15px;
-        }
-
-        .timeline h3 {
-            font-weight: lighter;
-            background: var(--blue);
-        }
-
-        .timeline p,
-        .timeline time {
-            color: var(--blue)
-        }
-
-        .timeline::before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 0;
-            border-left: 2px dashed var(--blue);
-            height: 100%;
-            z-index: 1;
-            transform: translateX(-50%);
-        }
-
-        .timeline-content {
-            border: 1px solid var(--blue);
-            position: relative;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0px 3px 25px 0px rgba(10, 55, 90, 0.2)
-        }
-
-        .timeline-nodes:nth-child(odd) h3,
-        .timeline-nodes:nth-child(odd) p {
-            text-align: right;
-        }
-
-        .timeline-nodes:nth-child(odd) .timeline-date {
-            text-align: left;
-        }
-
-        .timeline-nodes:nth-child(even) .timeline-date {
-            text-align: right;
-        }
-
-        .timeline-nodes:nth-child(odd) .timeline-content::after {
-            content: "";
-            position: absolute;
-            top: 5%;
-            left: 100%;
-            width: 0;
-            border-left: 10px solid var(--blue);
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
-
-        .timeline-nodes:nth-child(even) .timeline-content::after {
-            content: "";
-            position: absolute;
-            top: 5%;
-            right: 100%;
-            width: 0;
-            border-right: 10px solid var(--blue);
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
-
-        .timeline-image {
-            position: relative;
-            z-index: 100;
-        }
-
-        .timeline-image::before {
-            content: "";
-            width: 60px;
-            height: 60px;
-            border: 2px dashed var(--blue);
-            border-radius: 50%;
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            z-index: 1;
-
-
-        }
-
-        .timeline-image img {
-            position: relative;
-            z-index: 100;
-        }
-
-        /*small device style*/
-
-        @media (max-width: 767px) {
-
-            .timeline-nodes:nth-child(odd) h3,
-            .timeline-nodes:nth-child(odd) p {
-                text-align: left
-            }
-
-            .timeline-nodes:nth-child(even) {
-                flex-direction: row;
-            }
-
-            .timeline::before {
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 4%;
-                width: 0;
-                border-left: 2px dashed var(--blue);
-                height: 100%;
-                z-index: 1;
-                transform: translateX(-50%);
-            }
-
-            .timeline h3 {
-                font-size: 1.7rem;
-            }
-
-            .timeline p {
-                font-size: 14px;
-            }
-
-            .timeline-image {
-                position: absolute;
-                left: 0%;
-                top: 60px;
-                /*transform: translateX(-50%;);*/
-            }
-
-            .timeline-nodes:nth-child(odd) .timeline-content::after {
-                content: "";
-                position: absolute;
-                top: 5%;
-                left: auto;
-                right: 100%;
-                width: 0;
-                border-left: 0;
-                border-right: 10px solid var(--blue);
-                border-top: 10px solid transparent;
-                border-bottom: 10px solid transparent;
-            }
-
-            .timeline-nodes:nth-child(even) .timeline-content::after {
-                content: "";
-                position: absolute;
-                top: 5%;
-                right: 100%;
-                width: 0;
-                border-right: 10px solid var(--blue);
-                border-top: 10px solid transparent;
-                border-bottom: 10px solid transparent;
-            }
-
-            .timeline-nodes:nth-child(even) .timeline-date {
-                text-align: left;
-            }
-
-            .timeline-image::before {
-                width: 65px;
-                height: 65px;
-            }
-        }
-
-        /*extra small device style */
-        @media (max-width: 575px) {
-            .timeline::before {
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 3%;
-            }
-
-            .timeline-image {
-                position: absolute;
-                left: -5%;
-            }
-
-            .timeline-image::before {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        .accordion {
-            margin: 40px 0;
-        }
-
-        .accordion .item {
-            border: none;
-            margin-bottom: 50px;
-            background: none;
-        }
-
-        .t-p {
-            color: rgb(193 206 216);
-            padding: 40px 30px 0px 30px;
-        }
-
-        .accordion .item .item-header h2 button.btn.btn-link {
-            background: #171e36;
-            color: white;
-            border-radius: 0px;
-            font-family: 'Poppins';
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 2.5;
-            text-decoration: none;
-        }
-
-        .accordion .item .item-header {
-            border-bottom: none;
-            background: transparent;
-            padding: 0px;
-            margin: 2px;
-        }
-
-        .accordion .item .item-header h2 button {
-            color: white;
-            font-size: 20px;
-            padding: 15px;
-            display: block;
-            width: 100%;
-            text-align: left;
-        }
-
-        .accordion .item .item-header h2 i {
-            float: right;
-            font-size: 30px;
-            color: #eca300;
-            background-color: #171e36;
-            width: 60px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-        }
-
-        button.btn.btn-link.collapsed i {
-            transform: rotate(0deg);
-        }
-
-        button.btn.btn-link i {
-            transform: rotate(180deg);
-            transition: 0.5s;
-        }
-    </style>
     <!--Main Content Start-->
     @php
         $statusArray = ['1H', 'HT', '2H', 'ET', 'BT', 'P', 'INT', 'LIVE'];
@@ -343,7 +30,7 @@
                                             <div class="col-4 no-padding">
                                                 <div class="match-left">
                                                     <div class="mtl-left"> <img src="{{ $match[0]->teams->home->logo }}"
-                                                            alt="">
+                                                            >
                                                         <strong>{{ $match[0]->teams->home->name }}</strong>
                                                     </div>
                                                     <div class="mscore"> <strong>{{ $match[0]->goals->home }}</strong></div>
@@ -356,11 +43,9 @@
 
 
                                                     @if (in_array($match[0]->fixture->status->short, $statusArray))
-                                                        <strong
-                                                            style="color: #6ed950 !important;font-size: 20px !important;">{{ $match[0]->fixture->status->elapsed . '"' }}</strong>
+                                                        <strong class="color-6ed950-font-20">{{ $match[0]->fixture->status->elapsed . '"' }}</strong>
                                                     @else
-                                                        <strong
-                                                            style="color: #007399 !important;font-size: 20px !important;">{{ $match[0]->fixture->status->long }}</strong>
+                                                        <strong class="color-007399-font-20">{{ $match[0]->fixture->status->long }}</strong>
                                                     @endif
 
                                                 </div>
@@ -369,7 +54,7 @@
                                                 <div class="match-right">
                                                     <div class="mscore"> <strong>{{ $match[0]->goals->away }}</strong></div>
                                                     <div class="mtl-right"> <img src="{{ $match[0]->teams->away->logo }}"
-                                                            alt="">
+                                                            >
                                                         <strong>{{ $match[0]->teams->away->name }}</strong>
                                                     </div>
                                                 </div>
@@ -511,8 +196,7 @@
                                                         class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes">
                                                         <div class="col-10 col-md-5 order-3 order-md-1 timeline-content">
                                                             <h3 class="text-light">{!! $player !!}
-                                                                {{ $event->type }} <img src="{{ asset($image) }}"
-                                                                    alt="" style="width: 30px;"></h3>
+                                                                {{ $event->type }} <img src="{{ asset($image) }}" class="width-30"></h3>
                                                         </div>
                                                         <div
                                                             class="col-2 col-sm-1 px-md-3 order-2 timeline-image text-md-center">
@@ -536,20 +220,20 @@
                                                 <div class="link-section">
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <strong
-                                                                style="color: aliceblue">{{ $match[0]->teams->home->name }}
+                                                            <strong class="color-aliceblue"
+                                                                >{{ $match[0]->teams->home->name }}
                                                                 <br />
                                                                 {{ __('Formation') }} : {{ $homeFormation }} </strong>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <img src="{{ $match[0]->teams->home->logo }}" alt=""
-                                                                class="float-end" style="width: 50px;float: right;">
+                                                            <img src="{{ $match[0]->teams->home->logo }}" 
+                                                                class="float-end width-50-float-right">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="point-table-widget" style="border-bottom: none;">
+                                                <div class="point-table-widget bb-none">
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Coach') }}</th>
                                                             </tr>
@@ -564,10 +248,9 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="point-table-widget"
-                                                    style="border-top: none; border-bottom: none">
+                                                <div class="point-table-widget bb-bt-none">
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Starting XI') }}</th>
                                                                 <th>{{ __('Jersey') }}</th>
@@ -577,7 +260,7 @@
                                                             @if ($match[0]->lineups)
                                                                 @foreach ($homeStartXI as $key => $player)
                                                                     <tr>
-                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" alt="" style="width: 50px;" class="rounded"></td>
+                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" class="rounded width-50"></td>
                                                                         <td><strong>{{ $player->player->name }}</strong>
                                                                         </td>
                                                                         <td><strong>{{ $player->player->number }}</strong>
@@ -588,9 +271,9 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="point-table-widget" style="border-top: none;">
+                                                <div class="point-table-widget bt-none">
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Substitutes') }}</th>
                                                                 <th>{{ __('Jersey') }}</th>
@@ -600,7 +283,7 @@
                                                             @if ($match[0]->lineups)
                                                                 @foreach ($homeSubstitutes as $key => $player)
                                                                     <tr>
-                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" alt="" style="width: 50px;" class="rounded"></td>
+                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" class="rounded width-50"></td>
                                                                         
                                                                         <td><strong>{{ $player->player->name }}</strong>
                                                                         </td>
@@ -619,19 +302,19 @@
                                                     <div class="row">
                                                         <div class="col-md-9">
                                                             <strong
-                                                                style="color: aliceblue">{{ $match[0]->teams->away->name }}
+                                                                class="color-aliceblue">{{ $match[0]->teams->away->name }}
                                                                 <br />
                                                                 {{ __('Formation') }} : {{ $awayFormation }} </strong>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <img src="{{ $match[0]->teams->away->logo }}" alt=""
-                                                                class="float-end" style="width: 50px;float: right;">
+                                                            <img src="{{ $match[0]->teams->away->logo }}" 
+                                                                class="float-end width-50-float-right">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="point-table-widget" style="border-bottom: none;">
+                                                <div class="point-table-widget bb-none">
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Coach') }}</th>
                                                             </tr>
@@ -646,10 +329,10 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="point-table-widget"
-                                                    style="border-top: none; border-bottom: none">
+                                                <div class="point-table-widget bb-bt-none"
+                                                    >
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Starting XI') }}</th>
                                                                 <th>{{ __('Jersey') }}</th>
@@ -659,7 +342,7 @@
                                                             @if ($match[0]->lineups)
                                                                 @foreach ($awayStartXI as $key => $player)
                                                                     <tr>
-                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" alt="" style="width: 50px;" class="rounded"></td>
+                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" class="rounded width-50"></td>
                                                                         
                                                                         <td><strong>{{ $player->player->name }}</strong>
                                                                         </td>
@@ -671,9 +354,9 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <div class="point-table-widget" style="border-top: none;">
+                                                <div class="point-table-widget bt-none">
                                                     <table>
-                                                        <thead style="background: #343e60;">
+                                                        <thead class="background-343e60">
                                                             <tr>
                                                                 <th colspan="2">{{ __('Substitutes') }}</th>
                                                                 <th>{{ __('Jersey') }}</th>
@@ -683,7 +366,7 @@
                                                             @if ($match[0]->lineups)
                                                                 @foreach ($awaySubstitutes as $key => $player)
                                                                     <tr>
-                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" alt="" style="width: 50px;" class="rounded"></td>
+                                                                        <td><img src="{{ asset('public/images/player.jpg') }}" class="rounded width-50"></td>
                                                                         
                                                                         <td><strong>{{ $player->player->name }}</strong>
                                                                         </td>
@@ -710,8 +393,8 @@
                                                             @foreach ($headToHead as $item)
                                                                 <tr>
                                                                     <td><img src="{{ $item->teams->home->logo }}"
-                                                                            alt=""
-                                                                            style="width: 50px;"><strong>{{ $item->teams->home->name }}
+                                                                            
+                                                                            class="width-50"><strong>{{ $item->teams->home->name }}
                                                                         </strong>
                                                                     </td>
                                                                     <td class="text-center">
@@ -720,7 +403,7 @@
                                                                     <td class="text-right">
                                                                         <strong>{{ $item->teams->away->name }}
                                                                         </strong><img src="{{ $item->teams->away->logo }}"
-                                                                            alt="" style="width: 50px;">
+                                                                             class="width-50">
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -731,29 +414,26 @@
                                         </div>
                                     @endif
                                 </div>
-                                <div class="tab-pane" id="nav-statistics" role="tabpanel" aria-labelledby="nav-6-tab"
-                                    style="background: #0C1837; border-radius: 5px;">
+                                <div class="tab-pane background-0C1837-border-radius-5" id="nav-statistics" role="tabpanel" aria-labelledby="nav-6-tab">
                                     @if ($match[0]->statistics)
                                         @foreach ($match[0]->statistics[0]->statistics as $key => $item)
-                                            <div class="row" style="margin-top: 10px;">
+                                            <div class="row mt-10">
                                                 <div class="col-lg-12 col-md-12">
                                                     <div class="group-result">
-                                                        <div class="last-match-result-full-light"
-                                                            style="background: #163268;">
+                                                        <div class="last-match-result-full-light background-163268">
                                                             <div class="row">
                                                                 <div class="col-4 no-padding">
-                                                                    <p style="margin-left: 10px; color: whitesmoke">
+                                                                    <p class="ml-10-color-whitesmoke">
                                                                         <strong>
                                                                             {{ $item->value }} </strong></p>
                                                                 </div>
                                                                 <div class="col-4 no-padding">
-                                                                    <p style="text-align: center; color: whitesmoke">
+                                                                    <p class="text-center-color-whitesmoke">
                                                                         <strong>
                                                                             {{ $item->type }} </strong></p>
                                                                 </div>
                                                                 <div class="col-4 no-padding">
-                                                                    <p
-                                                                        style="text-align: right; margin-right: 10px; color: whitesmoke">
+                                                                    <p class="text-center-mr-10-color-whitesmoke">
                                                                         <strong>
                                                                             {{ $match[0]->statistics[1]->statistics[$key]->value }}
                                                                         </strong>
@@ -796,8 +476,8 @@
                                                                 <tr>
                                                                     <td>{{ __('Logo') }}</td>
                                                                     <td><img src="{{ $players->team->logo }}"
-                                                                            alt="" class="rounded"
-                                                                            style="width: 50px; padding: 7px;"></td>
+                                                                             class="rounded width-50-padding-7"
+                                                                            ></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -813,10 +493,9 @@
                                                                         aria-expanded="true"
                                                                         aria-controls="collapseOne<?= $key ?>">
                                                                         <img src="{{ $player->player->photo }}"
-                                                                            alt="" class="rounded-circle"
-                                                                            style="width: 50px">
+                                                                             class="rounded-circle width-50">
                                                                         {{ $player->player->name }}
-                                                                        <i class="fa fa-angle-down"></i>
+                                                                        <i class="fe-chevron-down"></i>
                                                                     </button>
                                                                 </h2>
                                                             </div>
@@ -825,11 +504,11 @@
                                                                 aria-labelledby="headingOne<?= $key ?>"
                                                                 data-parent="#accordionExample">
                                                                 @foreach ($player->statistics as $statistic)
-                                                                    <div class="match-players" style="margin-top: 10px;">
+                                                                    <div class="match-players mt-10">
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="team-palyers table-responsive">
-                                                                                    <h4 style="background: #3fca7c">
+                                                                                    <h4 class="background-3fca7c">
                                                                                         {{ __('Games') }}
                                                                                     </h4>
                                                                                     <table>
@@ -893,7 +572,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="team-palyers table-responsive">
-                                                                                    <h4 style="background: #e81f3e">
+                                                                                    <h4 class="background-e81f3e">
                                                                                         {{ __('Goals') }}
                                                                                     </h4>
                                                                                     <table>
@@ -925,7 +604,7 @@
                                                                             <div class="col-md-6">
                                                                                 <div
                                                                                     class="team-palyers table-responsive c2">
-                                                                                    <h4 style="background: #171e36">
+                                                                                    <h4 class="background-171e36">
                                                                                         {{ __('Passes') }}
                                                                                     </h4>
                                                                                     <table>
@@ -959,7 +638,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="team-palyers table-responsive">
-                                                                                    <h4 style="background: #8db13d">
+                                                                                    <h4 class="background-8db13d">
                                                                                         {{ __('Tackles') }}
                                                                                     </h4>
                                                                                     <table>
@@ -987,7 +666,7 @@
                                                                             <div class="col-md-6">
                                                                                 <div
                                                                                     class="team-palyers table-responsive c2">
-                                                                                    <h4 style="background: #1234a8">
+                                                                                    <h4 class="background-1234a8">
                                                                                         {{ __('Duels') }}
                                                                                     </h4>
                                                                                     <table>
@@ -1017,7 +696,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="team-palyers table-responsive">
-                                                                                    <h4 style="background: #78ca3f">
+                                                                                    <h4 class="background-78ca3f">
                                                                                         {{ __('Dribbles') }}
                                                                                     </h4>
                                                                                     <table>
@@ -1045,7 +724,7 @@
                                                                             <div class="col-md-6">
                                                                                 <div
                                                                                     class="team-palyers table-responsive c2">
-                                                                                    <h4 style="background: #127ea8">
+                                                                                    <h4 class="background-127ea8">
                                                                                         {{ __('Fouls') }}
                                                                                     </h4>
                                                                                     <table>
@@ -1073,7 +752,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-6">
                                                                                 <div class="team-palyers table-responsive">
-                                                                                    <h4 style="background: #3fca7c">
+                                                                                    <h4 class="background-3fca7c">
                                                                                         {{ __('Cards') }}
                                                                                     </h4>
                                                                                     <table>
@@ -1097,7 +776,7 @@
                                                                             <div class="col-md-6">
                                                                                 <div
                                                                                     class="team-palyers table-responsive c2">
-                                                                                    <h4 style="background: #12a893">
+                                                                                    <h4 class="background-12a893">
                                                                                         {{ __('Penalty') }}
                                                                                     </h4>
                                                                                     <table>
@@ -1148,7 +827,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-12">
-                        <div class="sidebar" style="margin-bottom: 10px;">
+                        <div class="sidebar mb-10">
                             <!--widget start-->
                             @include('front.upcomingMatch')
                             <!--widget end-->
@@ -1164,19 +843,17 @@
                                                     href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                             </h4>
                                             <ul class="news-meta">
-                                                <li><i class="fas fa-calendar-alt"></i>
+                                                <li><i class="fe-calendar"></i>
                                                     {{ date('D M, Y', strtotime($item->date)) }}</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="expand-news-img"><img
                                             src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                            alt=""></div>
+                                            ></div>
                                 </div>
                                 <!--Expand-->
                             @endforeach
-                            <div class="buyticket-btn"><a href="{{ route('news') }}">{{ __('View All') }}</a></div>
-
                         </div>
                         <div class="sidebar">
                             <!--widget start-->
@@ -1189,14 +866,12 @@
                                                 <h5><a
                                                         href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
                                                 </h5>
-                                                <span><i class="far fa-clock"></i>
+                                                <span><i class="fe-clock"></i>
                                                     {{ date('d M, Y', strtotime($item->date)) }} </span>
                                             </div>
-                                            <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg" alt="">
+                                            <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg" >
                                         </div>
                                     @endforeach
-                                    <div class="buyticket-btn"><a
-                                            href="{{ route('videos') }}">{{ __('View All') }}</a></div>
                                 </div>
                             </div>
                             <!--widget end-->
@@ -1221,15 +896,15 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     @if($finishDiff > 120)
-                        <h3 style="text-align: center; color: red">{{ __('Live video is not available as this match has finished! ') }}</h3>
+                        <h3 class="text-center-color-red">{{ __('Live video is not available as this match has finished! ') }}</h3>
                     @else
-                        <h3 style="text-align: center; color: red">{{ __('Live video will be available 30 minutes prior to the match start! ') }}</h3>
+                        <h3 class="text-center-color-red">{{ __('Live video will be available 30 minutes prior to the match start! ') }}</h3>
                     @endif
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">{{ __('Close') }}</button>
                 </div>
 
             </div>

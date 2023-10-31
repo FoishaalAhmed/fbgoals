@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title', __('Football Teams - FBGOALS'))
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/teams.min.css') }}">
+@endsection
+
 @section('content')
-    <style>
-        .next-match-fixtures .mvs p {
-            margin-top: 15px;
-        }
-    </style>
     <!--Main Content Start-->
     <div class="main-content innerpagebg wf100">
         <!--team Page Start-->
@@ -27,7 +27,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/49.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Chelsea, England') }}</strong>
@@ -45,7 +45,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/33.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Manchester United, England') }}</strong>
@@ -63,7 +63,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/529.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Barcelona, Spain') }}</strong>
@@ -81,7 +81,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/541.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Real Madrid,
@@ -100,7 +100,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/40.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Liverpool,
@@ -119,7 +119,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/42.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Arsenal,
@@ -138,7 +138,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/50.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Manchester City,
@@ -157,7 +157,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/47.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Tottenham,
@@ -176,7 +176,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/52.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Crystal Palace,
@@ -195,7 +195,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/85.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Paris Saint Germain, France') }}</strong>
@@ -213,7 +213,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/496.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Juventus,
@@ -232,7 +232,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/492.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Napoli,
@@ -251,7 +251,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/489.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('AC Milan,
@@ -270,7 +270,7 @@
                                                 <ul class="match-teams-vs">
                                                     <li class="team-logo"><img
                                                             src="https://media.api-sports.io/football/teams/505.png"
-                                                            alt="" style="width: 50px; height: 50px;">
+                                                             class="w-50-h-50">
                                                     </li>
                                                     <li class="mvs">
                                                         <p><strong>{{ __('Inter, Italy') }}</strong>
@@ -288,7 +288,7 @@
                         <!--Fixture End-->
                         <!--Sidebar Start-->
                         <div class="col-lg-4">
-                            <div class="sidebar" style="margin-bottom: 10px;">
+                            <div class="sidebar mb-10">
                                 <!--widget start-->
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
@@ -304,18 +304,17 @@
                                                         href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                                 </h4>
                                                 <ul class="news-meta">
-                                                    <li><i class="fas fa-calendar-alt"></i>
+                                                    <li><i class="fe-calendar"></i>
                                                         {{ date('D M, Y', strtotime($item->date)) }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="expand-news-img"><img
                                                 src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                                alt=""></div>
+                                                ></div>
                                     </div>
                                     <!--Expand-->
                                 @endforeach
-                                <div class="buyticket-btn"><a href="{{ route('news') }}">{{ __('View All') }}</a></div>
 
                             </div>
                             <div class="sidebar">
@@ -329,16 +328,13 @@
                                                     <h5><a
                                                             href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
                                                     </h5>
-                                                    <span><i class="far fa-clock"></i>
+                                                    <span><i class="fe-clock"></i>
                                                         {{ date('d M, Y', strtotime($item->date)) }} </span>
                                                 </div>
                                                 <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
-                                                    alt="">
-
+                                                    >
                                             </div>
                                         @endforeach
-                                        <div class="buyticket-btn"><a
-                                                href="{{ route('videos') }}">{{ __('View All') }}</a></div>
                                     </div>
                                 </div>
                                 <!--widget end-->

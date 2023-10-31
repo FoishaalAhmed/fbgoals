@@ -1,0 +1,105 @@
+.accordion {
+    margin: 40px 0;
+}
+
+.accordion .item {
+    border: none;
+    margin-bottom: 50px;
+    background: none;
+}
+
+.t-p {
+    color: rgb(193 206 216);
+    padding: 40px 30px 0px 30px;
+}
+
+.accordion .item .item-header h2 button.btn.btn-link {
+    background: #171e36;
+    color: white;
+    border-radius: 0px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2.5;
+    text-decoration: none;
+}
+
+.accordion .item .item-header {
+    border-bottom: none;
+    background: transparent;
+    padding: 0px;
+    margin: 2px;
+}
+
+.accordion .item .item-header h2 button {
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.accordion .item .item-header h2 i {
+    float: right;
+    font-size: 30px;
+    color: #eca300;
+    background-color: #171e36;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+button.btn.btn-link.collapsed i {
+    transform: rotate(0deg);
+}
+
+button.btn.btn-link i {
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+.w-50-h50-mt-10 {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.background-3fca7c {
+    background: #3fca7c
+}
+
+.background-e81f3e {
+    background: #e81f3e
+}
+
+.background-171e36 {
+    background: #171e36
+}
+
+.background-8db13d {
+    background: #8db13d
+}
+
+.background-1234a8 {
+    background: #1234a8
+}
+
+.background-78ca3f {
+    background: #78ca3f
+}
+
+.background-127ea8 {
+    background: #127ea8
+}
+
+.background-3fca7c {
+    background: #3fca7c
+}
+
+.background-12a893 {
+    background: #12a893
+}

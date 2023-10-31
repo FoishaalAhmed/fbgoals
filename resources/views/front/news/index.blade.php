@@ -17,7 +17,7 @@
                                         <div class="thumb">
                                             <a
                                                 href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}"><i
-                                                    class="fas fa-link"></i></a>
+                                                    class="fe-link"></i></a>
                                             <img src="{{ asset($item->photo) }}" alt="" style="height: 240px;">
                                         </div>
                                         <div class="ng-txt">
@@ -25,9 +25,8 @@
                                                     href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                             </h4>
                                             <ul class="post-meta">
-                                                <li><i class="fas fa-calendar-alt"></i>
+                                                <li><i class="fe-calendar"></i>
                                                     {{ date('d M, Y', strtotime($item->date)) }}</li>
-                                                {{-- <li><i class="far fa-comment"></i> 89 Comments</li> --}}
                                             </ul>
                                             <p>{{ Str::limit(strip_tags($item->content), 100) }}</p>
                                             <br><br>
@@ -68,7 +67,7 @@
                                             <div class="fvid-cap">
                                                 <h5><a href="https://www.youtube.com/watch?v=<?= $item['link'] ?>"
                                                         target="_blank">{{ $item['title'] }}</a></h5>
-                                                <span><i class="far fa-clock"></i>
+                                                <span><i class="fe-clock"></i>
                                                     {{ date('d M, Y', strtotime($item['date'])) }} </span>
                                             </div>
                                             <img src="https://img.youtube.com/vi/<?= $item['link'] ?>/1.jpg" alt="">
@@ -79,13 +78,12 @@
                                             <div class="fvid-cap">
                                                 <h5><a href="https://www.youtube.com/watch?v=<?= $item['link'] ?>"
                                                         target="_blank">{{ $item['title'] }}</a></h5>
-                                                <span><i class="far fa-clock"></i>
+                                                <span><i class="fe-clock"></i>
                                                     {{ date('d M, Y', strtotime($item['date'])) }} </span>
                                             </div>
                                             <img src="https://img.youtube.com/vi/<?= $item['link'] ?>/1.jpg" alt="">
                                         </div>
                                     @endforeach
-                                    <div class="buyticket-btn"><a href="{{ route('videos') }}">{{ __('View All') }}</a>
                                     </div>
                                 </div>
                             </div>

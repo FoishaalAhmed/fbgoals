@@ -49,8 +49,8 @@ class TeamController extends Controller
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
             'title' => str_replace('-', ' ', ucwords($name)) . ' fixtures | FBGOALS',
             'matches' => $this->helper->convertArrayToCollection($futureMatches),
-            'news' => News::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link'])
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
         (new Visitor())->storeVisitor();
         return view('front.teams.matches', $data);
@@ -72,8 +72,8 @@ class TeamController extends Controller
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
             'matches' => $this->helper->convertArrayToCollection($recentMatches),
             'title' => str_replace('-', ' ', ucwords($name)) . ' recent fixtures | FBGOALS',
-            'news' => News::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link'])
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
         
         (new Visitor())->storeVisitor();
@@ -88,8 +88,8 @@ class TeamController extends Controller
             'leagueId' => request()->league,
             'team' => json_decode($this->helper->getTeamInfo($team)),
             'title' => str_replace('-', ' ', ucwords($name)) . ' info | FBGOALS',
-            'news' => News::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link'])
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
         (new Visitor())->storeVisitor();
         return view('front.teams.info', $data);
@@ -104,8 +104,8 @@ class TeamController extends Controller
             'leagueId' => $league,
             'title' => str_replace('-', ' ', ucwords($name)) . ' statistics | FBGOALS',
             'statistics' => json_decode($this->helper->getTeamStatistics($team, $league)),
-            'news' => News::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link']),
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
         (new Visitor())->storeVisitor();
         return view('front.teams.statistic', $data);
@@ -119,8 +119,8 @@ class TeamController extends Controller
             'leagueId' => request()->league,
             'players' => json_decode($this->helper->getTeamPlayer($team)),
             'title' => str_replace('-', ' ', ucwords($name)) . ' players | FBGOALS',
-            'news' => News::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link'])
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
         (new Visitor())->storeVisitor();
         return view('front.teams.player', $data);

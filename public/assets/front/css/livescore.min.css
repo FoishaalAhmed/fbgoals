@@ -1,0 +1,99 @@
+.accordion .item {
+    border: none;
+    background: none;
+}
+
+.t-p {
+    color: rgb(193 206 216);
+    padding: 40px 30px 0px 30px;
+}
+
+.accordion .item .item-header h2 button.btn.btn-link {
+    background: #171e36;
+    color: white;
+    border-radius: 0px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 2.5;
+    text-decoration: none;
+}
+
+.accordion .item .item-header {
+    border-bottom: none;
+    background: transparent;
+    padding: 0px;
+    margin: 2px;
+}
+
+.accordion .item .item-header h2 button {
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.accordion .item .item-header h2 i {
+    float: right;
+    font-size: 30px;
+    color: #eca300;
+    background-color: #171e36;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+button.btn.btn-link.collapsed i {
+    transform: rotate(0deg);
+}
+
+button.btn.btn-link i {
+    transform: rotate(180deg);
+    transition: 0.5s;
+}
+
+.last-match-result-full-light {
+    padding: 5px;
+    margin: 0px;
+}
+
+.last-match-result-full-light .match-left .mtl-left img,
+.last-match-result-full-light .match-right .mtl-right img {
+    width: 30px;
+}
+
+.match-right .mtl-right {
+    width: 105px;
+}
+
+.match-left .mtl-left {
+    width: 107px;
+}
+
+.last-match-result-full-light {
+    border: 1px solid #888fa8;
+    background: #283151;
+    cursor: pointer;
+}
+
+.color-bcc9ea {
+    color: #bcc9ea;
+}
+
+.float-right {
+    float: right
+}
+
+.color-6ed950-font-15 {
+    color: #6ed950 !important;
+    font-size: 15px !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}

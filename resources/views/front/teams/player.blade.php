@@ -1,72 +1,12 @@
 @extends('layouts.app')
 
 @section('title', "$title")
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/teamplayer.min.css') }}">
+@endsection
+
 @section('content')
-    <style>
-        .accordion {
-            margin: 40px 0;
-        }
-
-        .accordion .item {
-            border: none;
-            margin-bottom: 50px;
-            background: none;
-        }
-
-        .t-p {
-            color: rgb(193 206 216);
-            padding: 40px 30px 0px 30px;
-        }
-
-        .accordion .item .item-header h2 button.btn.btn-link {
-            background: #171e36;
-            color: white;
-            border-radius: 0px;
-            font-family: 'Poppins';
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 2.5;
-            text-decoration: none;
-        }
-
-        .accordion .item .item-header {
-            border-bottom: none;
-            background: transparent;
-            padding: 0px;
-            margin: 2px;
-        }
-
-        .accordion .item .item-header h2 button {
-            color: white;
-            font-size: 20px;
-            padding: 15px;
-            display: block;
-            width: 100%;
-            text-align: left;
-        }
-
-        .accordion .item .item-header h2 i {
-            float: right;
-            font-size: 30px;
-            color: #eca300;
-            background-color: #171e36;
-            width: 60px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-        }
-
-        button.btn.btn-link.collapsed i {
-            transform: rotate(0deg);
-        }
-
-        button.btn.btn-link i {
-            transform: rotate(180deg);
-            transition: 0.5s;
-        }
-    </style>
     <!--Main Content Start-->
     <div class="main-content innerpagebg wf100">
         <!--team Page Start-->
@@ -88,10 +28,10 @@
                                                         <button class="btn btn-link" type="button" data-toggle="collapse"
                                                             data-target="#collapseOne<?= $key ?>" aria-expanded="true"
                                                             aria-controls="collapseOne<?= $key ?>">
-                                                            <img src="{{ $player->player->photo }}" alt=""
-                                                                class="rounded-circle" style="width: 50px">
+                                                            <img src="{{ $player->player->photo }}" 
+                                                                class="rounded-circle width-50">
                                                             {{ $player->player->name }}
-                                                            <i class="fa fa-angle-down"></i>
+                                                            <i class="fe-chevron-down"></i>
                                                         </button>
                                                     </h2>
                                                 </div>
@@ -101,9 +41,9 @@
 
                                                     @foreach ($player->statistics as $statistic)
                                                         <div class="group-box">
-                                                            <h6><img src="{{ $statistic->league->logo }}" alt=""
-                                                                    class="rounded-circle"
-                                                                    style="width: 50px;height: 50px;margin-top: 10px;">
+                                                            <h6><img src="{{ $statistic->league->logo }}" 
+                                                                    class="rounded-circle w-50-h-50-mt-10"
+                                                                    >
                                                                 {{ $statistic->league->name }} </h6>
                                                             <ul>
                                                                 <li>{{ __('Country') }} : {{ $statistic->league->country }}
@@ -116,7 +56,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="team-palyers">
-                                                                        <h4 style="background: #3fca7c">{{ __('Games') }}
+                                                                        <h4 class="background-3fca7c">{{ __('Games') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -214,7 +154,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers">
-                                                                        <h4 style="background: #e81f3e">{{ __('Goals') }}
+                                                                        <h4 class="background-e81f3e">{{ __('Goals') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -242,7 +182,7 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers c2">
-                                                                        <h4 style="background: #171e36">{{ __('Passes') }}
+                                                                        <h4 class="background-171e36">{{ __('Passes') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -274,7 +214,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers">
-                                                                        <h4 style="background: #8db13d">{{ __('Tackles') }}
+                                                                        <h4 class="background-8db13d">{{ __('Tackles') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -300,7 +240,7 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers c2">
-                                                                        <h4 style="background: #1234a8">{{ __('Duels') }}
+                                                                        <h4 class="background-1234a8">{{ __('Duels') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -327,7 +267,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers">
-                                                                        <h4 style="background: #78ca3f">
+                                                                        <h4 class="background-78ca3f">
                                                                             {{ __('Dribbles') }}
                                                                         </h4>
                                                                         <table>
@@ -354,7 +294,7 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers c2">
-                                                                        <h4 style="background: #127ea8">{{ __('Fouls') }}
+                                                                        <h4 class="background-127ea8">{{ __('Fouls') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -380,7 +320,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers">
-                                                                        <h4 style="background: #3fca7c">{{ __('Cards') }}
+                                                                        <h4 class="background-3fca7c">{{ __('Cards') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -405,7 +345,7 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="team-palyers c2">
-                                                                        <h4 style="background: #12a893">{{ __('Penalty') }}
+                                                                        <h4 class="background-12a893">{{ __('Penalty') }}
                                                                         </h4>
                                                                         <table>
                                                                             <tbody>
@@ -452,7 +392,7 @@
                         <!--Fixture End-->
                         <!--Sidebar Start-->
                         <div class="col-lg-4">
-                            <div class="sidebar" style="margin-bottom: 10px;">
+                            <div class="sidebar mb-10">
                                 <!--widget start-->
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
@@ -469,20 +409,17 @@
                                                             href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                                     </h4>
                                                     <ul class="news-meta">
-                                                        <li><i class="fas fa-calendar-alt"></i>
+                                                        <li><i class="fe-calendar"></i>
                                                             {{ date('D M, Y', strtotime($item->date)) }}</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="expand-news-img"><img
                                                     src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                                    alt=""></div>
+                                                    ></div>
                                         </div>
                                         <!--Expand-->
                                     @endforeach
-                                    <div class="buyticket-btn"><a
-                                            href="{{ route('team.news', ['team' => $teamId, 'name' => $name]) }}">{{ __('View All') }}</a>
-                                    </div>
 
                                 </div>
                             @endif
@@ -498,16 +435,13 @@
                                                         <h5><a
                                                                 href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
                                                         </h5>
-                                                        <span><i class="far fa-clock"></i>
+                                                        <span><i class="fe-clock"></i>
                                                             {{ date('d M, Y', strtotime($item->date)) }} </span>
                                                     </div>
                                                     <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
-                                                        alt="">
+                                                        >
                                                 </div>
                                             @endforeach
-                                            <div class="buyticket-btn"><a
-                                                    href="{{ route('team.videos', ['team' => $teamId, 'name' => $name]) }}">{{ __('View All') }}</a>
-                                            </div>
                                         </div>
                                     </div>
                                     <!--widget end-->

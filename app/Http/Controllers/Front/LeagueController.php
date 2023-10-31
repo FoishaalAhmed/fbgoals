@@ -55,8 +55,8 @@ class LeagueController extends Controller
             'league' => $league,
             'name' => $name,
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
-            'news' => News::latest('date')->where('leagues', 'like', '%' . $league .'%')->select('id', 'photo', 'title', 'date')->take(5)->get(),
-            'videos' => YoutubeVideo::latest('date')->where('leagues', 'like', '%' . $league .'%')->select('id', 'title', 'date', 'link')->take(5)->get(),
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link']),
             'matches' => $this->helper->convertArrayToCollection($upcomingMatches, 33)
         ];
 
@@ -77,8 +77,8 @@ class LeagueController extends Controller
             'league' => $league,
             'name' => $name,
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
-            'news' => News::latest('date')->where('leagues', 'like', '%' . $league . '%')->select('id', 'photo', 'title', 'date')->take(5)->get(),
-            'videos' => YoutubeVideo::latest('date')->where('leagues', 'like', '%' . $league . '%')->select('id', 'title', 'date', 'link')->take(5)->get(),
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link']),
             'matches' => $this->helper->convertArrayToCollection($recentMatches, 33)
         ];
 
@@ -91,9 +91,9 @@ class LeagueController extends Controller
         $data = [
             'title' => str_replace('-', ' ', ucwords($name)) . ' standing',
             'league' => $league,
-            'name' =>$name, 
-            'news' => News::latest('date')->where('leagues', 'like', '%' . $league . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('leagues', 'like', '%' . $league . '%')->take(5)->get(['id', 'title', 'date', 'link']),
+            'name' =>$name,
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link']),
             'leagues' => json_decode($this->helper->getLeagueStandings($league))
         ];
 
@@ -107,8 +107,8 @@ class LeagueController extends Controller
             'title' => str_replace('-', ' ', ucwords($name)) . ' standing',
             'league' => $league,
             'name' => $name,
-            'news' => News::latest('date')->where('leagues', 'like', '%' . $league . '%')->take(5)->get(['id', 'photo', 'title', 'date']),
-            'videos' => YoutubeVideo::latest('date')->where('leagues', 'like', '%' . $league . '%')->take(5)->get(['id', 'title', 'date', 'link']),
+            'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
+            'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link']),
             'players' => json_decode($this->helper->getLeagueTopScores($league))
         ];
 

@@ -1,0 +1,50 @@
+.point-table-widget table thead tr th a {
+    color: #bcc9ea;
+}
+
+.active {
+    color: #007bff !important;
+}
+
+.last-match-result-full-light {
+    border: 1px solid #888fa8;
+    background: #283151;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0px;
+}
+
+.match-right .mtl-right {
+    width: 130px;
+}
+
+.match-left .mtl-left {
+    width: 107px;
+}
+
+.lmr-info a.mh {
+    padding: 0 5px;
+}
+
+.last-match-result-full-light .mscore {
+    margin-left: 0px;
+}
+
+.league-title {
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    font-size: 16px;
+    background: #171e36;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.color-14844d {
+    color: #14844d !important;
+}
+
+.color-6ed950-font-15 {
+    color: #6ed950 !important;
+    font-size: 15px !important;
+}

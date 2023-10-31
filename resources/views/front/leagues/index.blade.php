@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title', __('Football Top Leagues - FBGOALS'))
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/leagues.min.css') }}">
+@endsection
+
 @section('content')
-    <style>
-        .next-match-fixtures .mvs p {
-            margin-top: 15px;
-        }
-    </style>
     <!--Main Content Start-->
     <div class="main-content innerpagebg wf100">
         <!--team Page Start-->
@@ -29,7 +29,7 @@
                                                     <div class="next-match-fixtures">
                                                         <ul class="match-teams-vs">
                                                             <li class="team-logo"><img src="{{ $item['logo'] }}"
-                                                                    alt="" style="width: 50px; height: 50px;">
+                                                                    class="width-height-50">
                                                             </li>
                                                             <li class="mvs">
                                                                 <p><strong>{{ $item['name'] . ', ' . $item['country'] }}</strong>
@@ -50,7 +50,7 @@
                         <!--Fixture End-->
                         <!--Sidebar Start-->
                         <div class="col-lg-4">
-                            <div class="sidebar" style="margin-bottom: 10px;">
+                            <div class="sidebar mb-10">
                                 <!--widget start-->
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
@@ -66,18 +66,17 @@
                                                         href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                                 </h4>
                                                 <ul class="news-meta">
-                                                    <li><i class="fas fa-calendar-alt"></i>
+                                                    <li><i class="fe-calendar"></i>
                                                         {{ date('D M, Y', strtotime($item->date)) }}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="expand-news-img"><img
-                                                src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                                alt=""></div>
+                                                src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}">
+                                        </div>
                                     </div>
                                     <!--Expand-->
                                 @endforeach
-                                <div class="buyticket-btn"><a href="{{ route('news') }}">{{ __('View All') }}</a></div>
 
                             </div>
                             <div class="sidebar">
@@ -91,15 +90,12 @@
                                                     <h5><a
                                                             href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
                                                     </h5>
-                                                    <span><i class="far fa-clock"></i>
+                                                    <span><i class="fe-clock"></i>
                                                         {{ date('d M, Y', strtotime($item->date)) }} </span>
                                                 </div>
-                                                <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
-                                                    alt="">
+                                                <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg">
                                             </div>
                                         @endforeach
-                                        <div class="buyticket-btn"><a
-                                                href="{{ route('videos') }}">{{ __('View All') }}</a></div>
                                     </div>
                                 </div>
                                 <!--widget end-->

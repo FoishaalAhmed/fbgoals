@@ -119,9 +119,6 @@
                                         <a href="">{{ __('About Us') }}</a>
                                         <ul>
                                             <li class="nav-item"> <a
-                                                    href="{{ route('contact') }}">{{ __('Contact Us') }}</a>
-                                            </li>
-                                            <li class="nav-item"> <a
                                                     href="{{ route('terms') }}">{{ __('Terms & Conditions') }}</a>
                                             </li>
                                             <li class="nav-item"> <a
@@ -164,9 +161,6 @@
                             <li><a href="{{ route('news') }}">{{ __('News') }}</a></li>
 
                             <li><a href="{{ route('videos') }}">{{ __('Videos') }}</a></li>
-
-                            <li><a href="{{ route('contact') }}">{{ __('Contact') }}</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

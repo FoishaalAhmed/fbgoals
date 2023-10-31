@@ -2,10 +2,10 @@
     <ul class="pagination justify-content-center">
         @if ($paginator->onFirstPage())
             <li class="page-item"> <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> <i
-                        class="fas fa-angle-left"></i> </a> </li>
+                        class="fe-arrow-left"></i> </a> </li>
         @else
             <li class="page-item"> <a class="page-link" href="{{ $paginator->previousPageUrl() }}" tabindex="-1"
-                    aria-disabled="true"> <i class="fas fa-angle-left"></i> </a> </li>
+                    aria-disabled="true"> <i class="fe-arrow-left"></i> </a> </li>
         @endif
         @foreach ($elements as $element)
             @if (is_string($element))
@@ -23,9 +23,9 @@
         @endforeach
         @if ($paginator->hasMorePages())
             <li class="page-item"> <a class="page-link" href="{{ $paginator->nextPageUrl() }}"><i
-                        class="fas fa-angle-right"></i></a> </li>
+                        class="fe-arrow-right"></i></a> </li>
         @else
-            <li class="page-item"> <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a> </li>
+            <li class="page-item"> <a class="page-link" href="#"><i class="fe-arrow-right"></i></a> </li>
         @endif
     </ul>
 @endif

@@ -3,7 +3,6 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Front\{
-    ContactController,
     FixtureController,
     HomeController,
     LeagueController,
@@ -14,17 +13,6 @@ use App\Http\Controllers\Front\{
     VideoController
 };
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('time-zone', [HomeController::class, 'timeZone'])->name('set.timeZone');
@@ -75,13 +63,6 @@ Route::get('videos', [VideoController::class, 'index'])->name('videos');
 Route::get('league-videos', [VideoController::class, 'leagueVideo'])->name('league.videos');
 Route::get('team-videos', [VideoController::class, 'teamVideo'])->name('team.videos');
 //youtube video route end here......
-
-//contact route start here......
-
-Route::get('contact', [ContactController::class, 'index'])->name('contact');
-Route::post('query', [ContactController::class, 'query'])->name('query');
-
-//contact route end here......
 
 //live match route start here......
 

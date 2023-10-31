@@ -1,168 +1,13 @@
 @extends('layouts.app')
 
 @section('title', __('Football Scores and Fixtures - FBGOALS'))
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/fixture.min.css') }}">
+@endsection
+
 @section('content')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        .carousel-inner {
-            height: 100px;
-        }
-
-        .carousel-caption {
-            color: #fff;
-            top: 50%;
-            margin-top: 20px;
-        }
-
-        span a {
-            color: aliceblue;
-        }
-
-        span a:hover {
-            color: aliceblue;
-        }
-
-        .date-design {
-            padding: 10px;
-            border: 1px solid #171e36;
-            border-radius: 2px;
-        }
-
-        .carousel-control-next,
-        .carousel-control-prev {
-            width: 5% !important;
-        }
-
-        .carousel-caption {
-            right: 0%;
-            left: 0%;
-        }
-
-        .date-icon {
-            color: aliceblue;
-            font-size: 25px;
-            margin-top: 37px;
-            cursor: pointer;
-        }
-
-        @media (min-width: 280px) and (max-width: 575px) {
-            .date-design {
-                border: none !important;
-            }
-
-            .date-icon {
-                margin-top: 0px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .date-design {
-                border: none !important;
-            }
-
-            .date-icon {
-                margin-top: 0px;
-            }
-        }
-
-        .accordion .item {
-            border: none;
-            background: none;
-        }
-
-        .t-p {
-            color: rgb(193 206 216);
-            padding: 40px 30px 0px 30px;
-        }
-
-        .accordion .item .item-header h2 button.btn.btn-link {
-            background: #171e36;
-            color: white;
-            border-radius: 0px;
-            font-family: 'Poppins';
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 2.5;
-            text-decoration: none;
-        }
-
-        .accordion .item .item-header {
-            border-bottom: none;
-            background: transparent;
-            padding: 0px;
-            margin: 2px;
-        }
-
-        .accordion .item .item-header h2 button {
-            color: white;
-            font-size: 20px;
-            padding: 5px;
-            display: block;
-            width: 100%;
-            text-align: left;
-        }
-
-        .accordion .item .item-header h2 i {
-            float: right;
-            font-size: 30px;
-            color: #eca300;
-            background-color: #171e36;
-            width: 60px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-        }
-
-        button.btn.btn-link.collapsed i {
-            transform: rotate(0deg);
-        }
-
-        button.btn.btn-link i {
-            transform: rotate(180deg);
-            transition: 0.5s;
-        }
-        .last-match-result-full-light {
-            padding: 5px;
-            margin: 0px;
-        }
-
-        .last-match-result-full-light .match-left .mtl-left img,
-        .last-match-result-full-light .match-right .mtl-right img {
-            width: 30px;
-        }
-
-        .match-right .mtl-right {
-            width: 105px;
-        }
-
-        .match-left .mtl-left {
-            width: 107px;
-        }
-
-        .last-match-result-full-light {
-            border: 1px solid #888fa8;
-            background: #283151;
-            cursor: pointer;
-        }
-
-        .match-right .mtl-right {
-            width: 130px;
-        }
-
-        .match-left .mtl-left {
-            width: 107px;
-        }
-
-        .lmr-info a.mh {
-            padding: 0 5px;
-        }
-
-        .last-match-result-full-light .mscore {
-            margin-left: 0px;
-        }
-    </style>
     <!--Main Content Start-->
     <div class="main-content wf100">
 
@@ -400,24 +245,15 @@
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">{{ __('Previous') }}</span>
                             </a>
                             <a class="carousel-control-next" href="#carouselExampleControls" role="button"
                                 data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">{{ __('Next') }}</span>
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <i class="fas fa-calendar-alt date-icon"></i>
-                        <form action="" method="get" id="fixture-form">
-                            @csrf
-                            <input type="text" id="date" name="date" style="visibility: hidden"
-                                onchange="$('#fixture-form').submit()">
-                        </form>
-                    </div>
-
                 </div>
                 <div class="row">
                     @php
@@ -438,7 +274,7 @@
                                                     data-target="#collapseOne<?= $key ?>" aria-expanded="true"
                                                     aria-controls="collapseOne<?= $key ?>">
                                                     {{ $value['league'] }}
-                                                    <i class="fa fa-angle-down"></i>
+                                                    <i class="fe-chevron-down"></i>
                                                 </button>
                                             </h2>
                                         </div>
@@ -454,11 +290,11 @@
                                                             <div class="match-left">
                                                                 <div class="mtl-left"> <img
                                                                         src="{{ $match['homeTeamLogo'] }}" alt="">
-                                                                    <strong><a style="color: #bcc9ea;"
+                                                                    <strong><a class="color-bcc9ea"
                                                                             href="{{ route('teams.matches', [$match['homeTeamId'], str_replace([' ', '_', "'", '&'], '-', strtolower($match['homeTeamName'])), 'league' => $match['leagueId']]) }}">{{ $match['homeTeamName'] }}</a></strong>
                                                                 </div>
                                                                 @if (!in_array($match['shortStatus'], $statusArray))
-                                                                    <div class="mscore" style="float: right">
+                                                                    <div class="mscore float-right">
                                                                         <strong>{{ $match['homeTeamGoal'] }}</strong>
                                                                     </div>
                                                                 @endif
@@ -468,12 +304,12 @@
                                                         <div class="col-2 no-padding">
                                                             <div class="lmr-info">
                                                                 @if ($match['shortStatus'] === 'NS')
-                                                                    <strong style="color: #14844d !important;">
+                                                                    <strong class="color-14844d">
                                                                         {{ date('d/m  h:i A', $match['date']) }} </strong>
                                                                 @endif
                                                                 @if (in_array($match['shortStatus'], $liveStatus))
                                                                     <strong
-                                                                        style="color: #6ed950 !important;font-size: 15px !important;">{{ $match['elapsed'] . '"' }}</strong>
+                                                                        class="color-6ed950-font-15">{{ $match['elapsed'] . '"' }}</strong>
                                                                 @endif
                                                                 <a href="{{ route('match.detail', [$match['fixtureId'], str_replace(' ', '-', strtolower($match['homeTeamName'] . ' vs ' . $match['awayTeamName']))]) }}"
                                                                     class="mh">{{ in_array($match['fixtureId'], $matchArray) && in_array($match['shortStatus'], $liveStatus) ? __('Watch Live') : $match['longStatus'] }}</a>
@@ -488,7 +324,7 @@
                                                                 @endif
                                                                 <div class="mtl-right"> <img
                                                                         src="{{ $match['awayTeamLogo'] }}" alt="">
-                                                                    <strong><a style="color: #bcc9ea;"
+                                                                    <strong><a class="color-bcc9ea"
                                                                             href="{{ route('teams.matches', [$match['awayTeamId'], str_replace([' ', '_', "'", '&'], '-', strtolower($match['awayTeamName'])), 'league' => $match['leagueId']]) }}">{{ $match['awayTeamName'] }}</a></strong>
                                                                 </div>
 
@@ -523,7 +359,7 @@
                                                         href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                                 </h4>
                                                 <ul class="news-meta">
-                                                    <li><i class="fas fa-calendar-alt"></i>
+                                                    <li><i class="fe-calendar"></i>
                                                         {{ date('D M, Y', strtotime($item->date)) }}</li>
                                                 </ul>
                                             </div>
@@ -534,8 +370,6 @@
                                     </div>
                                     <!--Expand-->
                                 @endforeach
-                                <div class="buyticket-btn"><a href="{{ route('news') }}">{{ __('View All') }}</a>
-                                </div>
 
                             </div>
                             <!--widget end-->
@@ -549,16 +383,13 @@
                                                 <div class="fvid-right">
                                                     <h5><a href="https://www.youtube.com/watch?v=<?= $item->link ?>"
                                                             target="_blank">{{ $item->title }}</a></h5>
-                                                    <span><i class="far fa-clock"></i>
+                                                    <span><i class="fe-clock"></i>
                                                         {{ date('d M, Y', strtotime($item->date)) }} </span>
                                                 </div>
                                             </div>
                                             <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg" alt="">
                                         </div>
                                     @endforeach
-                                    <div class="buyticket-btn"><a
-                                            href="{{ route('videos') }}">{{ __('View All') }}</a>
-                                    </div>
                                 </div>
                             </div>
                             <!--widget end-->
@@ -570,17 +401,4 @@
         <!--Sports Widgets End-->
     </div>
     <!--Main Content End-->
-@endsection
-
-@section('js')
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("#date").datepicker();
-            $('.date-icon').click(function() {
-                $("#date").datepicker('show');
-            });
-        });
-    </script>
 @endsection

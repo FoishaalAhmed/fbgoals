@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title', "$title")
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('public/assets/front/css/teamsinfo.min.css') }}">
+@endsection
+
 @section('content')
-    <style>
-        .next-match-fixtures .mvs p {
-            margin-top: 15px;
-        }
-    </style>
     <!--Main Content Start-->
     <div class="main-content innerpagebg wf100">
         <!--team Page Start-->
@@ -15,10 +15,10 @@
             <div class="player-squad">
                 <div class="container">
                     <div class="row">
-                       
+
                         <!--Fixture Start-->
                         <div class="col-lg-8">
-                             @include('front.teams.secondMenu')
+                            @include('front.teams.secondMenu')
                             <!--Mathes Grid-->
                             @if ($team)
                                 <div class="point-table-widget">
@@ -27,7 +27,7 @@
                                             <tr>
                                                 <td>{{ __('Name') }}</td>
                                                 <td>:</td>
-                                                <td><img src="{{ $team[0]->team->logo }}" alt="" style="width: 50px;">
+                                                <td><img src="{{ $team[0]->team->logo }}" class="width-50">
                                                     <strong>{{ $team[0]->team->name }}</strong>
                                                 </td>
                                             <tr>
@@ -78,7 +78,7 @@
                         <!--Fixture End-->
                         <!--Sidebar Start-->
                         <div class="col-lg-4">
-                            <div class="sidebar" style="margin-bottom: 10px;">
+                            <div class="sidebar mb-10">
                                 <!--widget start-->
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
@@ -95,14 +95,14 @@
                                                             href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                                     </h4>
                                                     <ul class="news-meta">
-                                                        <li><i class="fas fa-calendar-alt"></i>
+                                                        <li><i class="fe-calendar"></i>
                                                             {{ date('D M, Y', strtotime($item->date)) }}</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="expand-news-img"><img
-                                                    src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}"
-                                                    alt=""></div>
+                                                    src="{{ file_exists($item->photo) ? asset($item->photo) : asset('public/images/news.jpg') }}">
+                                            </div>
                                         </div>
                                         <!--Expand-->
                                     @endforeach
@@ -124,11 +124,10 @@
                                                         <h5><a
                                                                 href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
                                                         </h5>
-                                                        <span><i class="far fa-clock"></i>
+                                                        <span><i class="fe-clock"></i>
                                                             {{ date('d M, Y', strtotime($item->date)) }} </span>
                                                     </div>
-                                                    <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
-                                                        alt="">
+                                                    <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg">
                                                 </div>
                                             @endforeach
                                             <div class="buyticket-btn"><a
