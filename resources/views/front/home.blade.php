@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Football Teams, Scores, Stats, News, Fixtures, Results, Tables - FBGOALS'))
+@section('title', __('Football Teams, Scores, Stats, News, Fixtures, Results, Tables - :x' , ['x' => settings('name')]))
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/assets/front/css/home.min.css') }}">

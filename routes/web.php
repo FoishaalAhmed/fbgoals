@@ -45,15 +45,14 @@ Route::get('fixture/{fixtureid}/{match}', [MatchController::class, 'detail'])->n
 //feature route
 
 Route::get('fixtures', [FixtureController::class, 'index'])->name('fixtures');
-Route::get('terms-and-conditions', [FixtureController::class, 'terms'])->name('terms');
-Route::get('privacy-policy', [FixtureController::class, 'privacy'])->name('privacy');
+Route::get('pages/{slug}', [FixtureController::class, 'page'])->name('page');
 
 
 //Route::get('fixtures', [FextureController])
 
 //news route start here......
 Route::get('news', [NewsController::class, 'index'])->name('news');
-Route::get('news/detail', [NewsController::class, 'detail'])->name('news.detail');
+Route::get('news/detail/{news}/{title}', [NewsController::class, 'detail'])->name('news.detail');
 Route::get('league-news', [NewsController::class, 'leagueNews'])->name('league.news');
 Route::get('team-news', [NewsController::class, 'teamNews'])->name('team.news');
 //news route end here......
@@ -70,8 +69,6 @@ Route::get('live-scores', [LiveController::class, 'index'])->name('live.scores')
 Route::get('live-matches', [LiveController::class, 'matches'])->name('live.matches');
 
 //live match route end here......
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\{
     FootballMatchController,
     YoutubeVideoController,
     DashboardController,
+    LanguageController,
     SettingController,
     SocialController,
     SeasonController,
@@ -47,6 +48,13 @@ Route::controller(SettingController::class)->prefix('settings')->as('settings.')
     Route::get('', 'create')->name('create');
     Route::post('/store', 'store')->name('store');;
 });
+
+Route::controller(SettingController::class)->prefix('settings')->as('settings.')->group(function () {
+    Route::get('', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');;
+});
+
+Route::get('set-language', [LanguageController::class, 'index'])->name('set.language');
 
 Route::resource('pages', PageController::class)->except('show');
 Route::resource('news', NewsController::class)->except('show');

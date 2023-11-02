@@ -112,6 +112,21 @@ if (!function_exists('settings')) {
     }
 }
 
+if (!function_exists('season')) {
+
+    /**
+     * Get season values
+     *
+     * @return string
+     */
+    function season()
+    {
+        $setting = \App\Models\Season::first();
+
+        return is_null($setting) ? date('Y') : $setting->season;
+    }
+}
+
 if (!function_exists('darkLogo')) {
 
     /**

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Football Teams - FBGOALS'))
+@section('title', __('Football Teams - :x', ['x' => settings('name')]))
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/assets/front/css/teams.min.css') }}">

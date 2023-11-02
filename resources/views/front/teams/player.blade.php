@@ -61,7 +61,7 @@
                                                                         <table>
                                                                             <tbody>
                                                                                 <tr>
-                                                                                    <td><strong>{{ __('Appearences') }}</strong>
+                                                                                    <td><strong>{{ __('Appearances') }}</strong>
                                                                                     </td>
                                                                                     <td><strong>{{ __('Lineups') }}</strong>
                                                                                     </td>
@@ -352,7 +352,7 @@
                                                                                 <tr>
                                                                                     <td><strong>{{ __('Won') }}</strong>
                                                                                     </td>
-                                                                                    <td><strong>{{ __('Commited') }}</strong>
+                                                                                    <td><strong>{{ __('Committed') }}</strong>
                                                                                     </td>
                                                                                     <td><strong>{{ __('Scored') }}</strong>
                                                                                     </td>

@@ -50,7 +50,7 @@
                             <li class="nav-item">
                                 <a href="#persional-info" data-bs-toggle="tab" aria-expanded="false"
                                     class="nav-link active">
-                                    {{ __('Persional Info') }}
+                                    {{ __('Personal Info') }}
                                 </a>
                             </li>
                             <li class="nav-item">

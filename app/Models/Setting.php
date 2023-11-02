@@ -18,6 +18,7 @@ class Setting extends Model
     public static $validateRule = [
         'name' => ['required', 'string', 'max:190'],
         'email' => ['nullable', 'email', 'string', 'max:190'],
+        'api_key' => ['required', 'string', 'max:190'],
         'phone' => ['nullable', 'string', 'max:190'],
         'google_tracking' => ['nullable', 'string'],
         'address' => ['nullable', 'string', 'max:190'],
@@ -99,6 +100,7 @@ class Setting extends Model
             }
 
             Setting::where(['name' => 'name', 'type' => 'General'])->update(['value' => $request->name]);
+            Setting::where(['name' => 'api_key', 'type' => 'General'])->update(['value' => $request->api_key]);
             Setting::where(['name' => 'email', 'type' => 'General'])->update(['value' => $request->email]);
             Setting::where(['name' => 'phone', 'type' => 'General'])->update(['value' => $request->phone]);
             Setting::where(['name' => 'address', 'type' => 'General'])->update(['value' => $request->address]);

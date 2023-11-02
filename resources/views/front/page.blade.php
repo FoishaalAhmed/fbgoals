@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', "$page->name")
+@section('title', "$page->title")
 @section('content')
     <!--Main Content Start-->
     <div class="main-content innerpagebg wf100 p80">
@@ -19,7 +19,7 @@
                                 @endif
 
                                 <div class="post-txt">
-                                    <h3>{{ $page->name }}</h3>
+                                    <h3>{{ $page->title }}</h3>
                                     {!! $page->content !!}
                                 </div>
                             </div>

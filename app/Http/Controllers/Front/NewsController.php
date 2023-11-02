@@ -21,11 +21,8 @@ class NewsController extends Controller
         return view('front.news.index', $data);
     }
 
-    public function detail()
+    public function detail(News $news)
     {
-        $news = file_get_contents(request()->link);
-
-
         $data = [
             'news' => $news,
             'latestNews' => News::where('status', 1)->latest('date')->take(5)->get(),

@@ -24,7 +24,7 @@
         </div>
 
         <ul class="topbar-menu d-flex align-items-center">
-            
+
             <!-- Fullscreen Button -->
             <li class="d-none d-md-inline-block">
                 <a class="nav-link waves-effect waves-light" href="#" data-toggle="fullscreen">
@@ -34,29 +34,57 @@
 
             <!-- Language flag dropdown  -->
             <li class="dropdown d-none d-md-inline-block">
-                <a class="nav-link dropdown-toggle waves-effect waves-light arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{ asset('public/assets/backend/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="18">
+                <a class="nav-link dropdown-toggle waves-effect waves-light arrow-none" data-bs-toggle="dropdown"
+                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <img src="{{ asset('public/assets/backend/images/flags/' . Config::get('app.locale') . '.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="18">
                 </a>
+
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('public/assets/backend/images/flags/germany.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                    <a href="{{ route('admin.set.language', ['lang' => 'en']) }}" class="dropdown-item language">
+                        <img src="{{ asset('public/assets/backend/images/flags/en.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">English</span>
+                    </a>
+                    <!-- item-->
+                    <a href="{{ route('admin.set.language', ['lang' => 'ar']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/ar.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Arabic</span>
+                    </a>
+                    <!-- item-->
+                    <a href="{{ route('admin.set.language', ['lang' => 'ch']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/ch.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Chinise</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('public/assets/backend/images/flags/italy.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                    <a href="{{ route('admin.set.language', ['lang' => 'es']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/es.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('public/assets/backend/images/flags/spain.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                    <a href="{{ route('admin.set.language', ['lang' => 'fr']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/fr.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">French</span>
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('public/assets/backend/images/flags/russia.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                    <a href="{{ route('admin.set.language', ['lang' => 'pt']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/pt.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Portuguese</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="{{ route('admin.set.language', ['lang' => 'ru']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/ru.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Russian</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="{{ route('admin.set.language', ['lang' => 'tr']) }}" class="dropdown-item">
+                        <img src="{{ asset('public/assets/backend/images/flags/tr.jpg') }}" alt="user-image"
+                            class="me-1" height="12"> <span class="align-middle">Turkish</span>
                     </a>
 
                 </div>
@@ -71,11 +99,13 @@
 
             <!-- User Dropdown -->
             <li class="dropdown">
-                <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
+                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     @if (file_exists(auth()->user()->photo))
                         <img src="{{ asset(auth()->user()->photo) }}" alt="user-image" class="rounded-circle">
                     @else
-                        <img src="{{ asset('public/assets/backend/images/users/user-1.jpg') }}" alt="user-image" class="rounded-circle">
+                        <img src="{{ asset('public/assets/backend/images/users/user-1.jpg') }}" alt="user-image"
+                            class="rounded-circle">
                     @endif
                     <span class="ms-1 d-none d-md-inline-block">
                         {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>

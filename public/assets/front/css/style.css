@@ -375,6 +375,15 @@ ul.post-meta li,
     height: 240px;
 }
 
+.cwit-p10 {
+    color: whitesmoke;
+    padding: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
 @media (min-width: 280px) and (max-width: 575px) {
     .logo-img {
         width: 30%;

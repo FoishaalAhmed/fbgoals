@@ -784,7 +784,7 @@
                                                                                             <tr>
                                                                                                 <td><strong>{{ __('Won') }}</strong>
                                                                                                 </td>
-                                                                                                <td><strong>{{ __('Commited') }}</strong>
+                                                                                                <td><strong>{{ __('Committed') }}</strong>
                                                                                                 </td>
                                                                                                 <td><strong>{{ __('Scored') }}</strong>
                                                                                                 </td>

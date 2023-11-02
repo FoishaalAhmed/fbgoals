@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
 use App\Models\FeaturedMatch;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
@@ -29,6 +30,20 @@ class AppServiceProvider extends ServiceProvider
         $match = FeaturedMatch::first();
         $helperObject = new HelperController();
         $matchData = json_decode($helperObject->getMatchDetail($match->match_id));
-        view()->share(['contact' => \App\Models\Social::first(), 'upcomingMatchData' => $matchData, 'upcomingMatch' => $match]);
+
+        $headerPages = Page::where('status', 'Active')->where(function ($query) {
+            $query->where('position', 'Header')->orWhere('position', 'Both');
+        })->get(['id', 'title', 'slug']);
+        $footerPages = Page::where('status', 'Active')->where(function($query) {
+            $query->where('position', 'Footer')->orWhere('position', 'Both');
+        }) ->get(['id', 'title', 'slug']);
+
+        view()->share([
+            'upcomingMatch' => $match,
+            'headerPages' => $headerPages,
+            'footerPages' => $footerPages,
+            'upcomingMatchData' => $matchData, 
+            'contact' => \App\Models\Social::first(), 
+        ]);
     }
 }

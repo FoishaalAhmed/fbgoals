@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Football Scores and Fixtures - FBGOALS'))
+@section('title', __('Football Scores and Fixtures - :x', ['x' => settings('name')]))
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/assets/front/css/jquery-ui.css') }}">

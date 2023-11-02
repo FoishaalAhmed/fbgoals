@@ -13,7 +13,12 @@
                     <div class="col-lg-8">
                         <div class="news-details-wrap">
                             <div class="news-large-post">
-                                {!! $news !!}
+                                <div class="post-thumb mb-20"> 
+                                    <img src="{{ asset($news->photo) }}" alt=""> 
+                                </div>
+                                <div class="post-text cwit-p10">
+                                    {!! $news->content !!}
+                                </div>
                             </div>
                         </div>
                     </div>

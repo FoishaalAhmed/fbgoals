@@ -47,7 +47,7 @@ class TeamController extends Controller
             'fixedLeagues' => $fixedLeagues,
             'leagueId' => request()->league,
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
-            'title' => str_replace('-', ' ', ucwords($name)) . ' fixtures | FBGOALS',
+            'title' => str_replace('-', ' ', ucwords($name)) . ' fixtures | '. settings('name'),
             'matches' => $this->helper->convertArrayToCollection($futureMatches),
             'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
@@ -71,7 +71,7 @@ class TeamController extends Controller
             'leagueId' => request()->league,
             'matchArray' => FootballMatch::pluck('matches')->toArray(),
             'matches' => $this->helper->convertArrayToCollection($recentMatches),
-            'title' => str_replace('-', ' ', ucwords($name)) . ' recent fixtures | FBGOALS',
+            'title' => str_replace('-', ' ', ucwords($name)) . ' recent fixtures | ' . settings('name'),
             'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
@@ -87,7 +87,7 @@ class TeamController extends Controller
             'name' => $name,
             'leagueId' => request()->league,
             'team' => json_decode($this->helper->getTeamInfo($team)),
-            'title' => str_replace('-', ' ', ucwords($name)) . ' info | FBGOALS',
+            'title' => str_replace('-', ' ', ucwords($name)) . ' info | ' . settings('name'),
             'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
@@ -102,7 +102,7 @@ class TeamController extends Controller
             'teamId' => $team,
             'name' => $name,
             'leagueId' => $league,
-            'title' => str_replace('-', ' ', ucwords($name)) . ' statistics | FBGOALS',
+            'title' => str_replace('-', ' ', ucwords($name)) . ' statistics | ' . settings('name'),
             'statistics' => json_decode($this->helper->getTeamStatistics($team, $league)),
             'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
@@ -118,7 +118,7 @@ class TeamController extends Controller
             'name' => $name,
             'leagueId' => request()->league,
             'players' => json_decode($this->helper->getTeamPlayer($team)),
-            'title' => str_replace('-', ' ', ucwords($name)) . ' players | FBGOALS',
+            'title' => str_replace('-', ' ', ucwords($name)) . ' players | ' . settings('name'),
             'news' => News::latest('date')->take(5)->get(['id', 'photo', 'title', 'date']),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(['id', 'title', 'date', 'link'])
         ];

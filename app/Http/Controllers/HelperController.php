@@ -14,7 +14,7 @@ class HelperController extends Controller
     public function __construct()
     {
         $this->baseUrl = 'http://gtvcricketlive.com/';
-        $this->season  = date('m') == '01' ? date('Y', strtotime('-1 years')) : date('Y');
+        $this->season  = season();
 
         if (isset($_COOKIE["client_timezone"]) && !empty($_COOKIE["client_timezone"])) {
 
@@ -38,7 +38,7 @@ class HelperController extends Controller
             CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST  => $method,
             CURLOPT_HTTPHEADER     => array(
-                'ab: live-soccer-tv-footballl-live-tv'
+                settings('api_key')
             ),
         ));
 

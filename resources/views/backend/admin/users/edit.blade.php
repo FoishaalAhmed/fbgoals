@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
                                     <label for="permission" class="form-label">{{ __('Permission') }}</label>
-                                    <select class="form-control select2-multiple" name="permission[]" data-toggle="select2" data-width="100%" multiple="multiple" data-placeholder="{{ __('Choose Prefered permission') }}">
+                                    <select class="form-control select2-multiple" name="permission[]" data-toggle="select2" data-width="100%" multiple="multiple" data-placeholder="{{ __('Choose Preferred permission') }}">
                                         @foreach ($permissions as $permission)
                                             <option value="{{ $permission->name }}" {{ in_array($permission->id, $permissionArray) ? 'selected' : '' }}>{{ $permission->name }}</option>
                                         @endforeach

@@ -9,7 +9,7 @@
         content="Watch live football matches, live football score, leagues details , team details and also football live tv channel and more">
     <meta name="keywords"
         content="football, soccer, football live, soccer live, football live score, live football matches, football live tv ,  live soccer , soccer live matches, World Cup, Premier League, Serie A, UEFA Champions League, UEFA europa league, Africa Cup of Nations,Copa America, Friendlies, AFC Champions League, La Liga, Coppa Italia, UEFA Super Cup, Bundesliga, UEFA Europa Conference League, Championship, League One, FA Cup, EFL Trophy, Ligue 1, Eredivisie, Cup, USL Championship, Major League Soccer, NPFL, Premier League, King's Cup, Super Cup, CONCACAF Nations League, QSL Cup, world cup, premier league, serie a, uefa champions league, uefa europa league, africa cup of nations, copa america, friendlies, afc champions league, la liga, coppa italia, ufea super cup, bundesliga, uefa europa conference league, championship, league one, fa cup, efl trophy, ligue 1, eredivisie, cup, usl championship, major league soccer, npfl, premier league, king's cup, super cup, concacaf nations league, qsl cup, Chelsea, Manchester United, Barcelona, Real Madrid, Liverpool, Arsenal, Manchester City, Tottenham, Crystal Palace, Paris Saint Germain, Juventus, Napoli, AC Milan, Inter, chelsea, manchester united, barcelona, real madrid, liverpool, arsenal, manchester city, tottenham, crystal palace, paris saint germain, juventus, napoli, ac milan, inter, Football Teams, Scores, Stats, News, Fixtures, Results, Tables">
-    <meta name="author" content="fbgoals.com">
+    <meta name="author" content="{{ settings('name') }}">
     <link rel="icon" href="{{ asset('public/assets/front/images/fav.png') }}" type="image/png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('public/assets/front/css/custom.css') }}">
@@ -53,15 +53,7 @@
                             <ul class="toplinks">
                                 <li class="lang-btn">
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false"> {{ __('ENG') }} </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                                            <a class="dropdown-item" href="#">{{ __('ENG') }}</a> 
-                                            <a class="dropdown-item" href="#">{{ __('FR') }}</a> 
-                                            <a class="dropdown-item" href="#">{{ __('GR') }}</a>
-                                            <a class="dropdown-item" href="#">{{ __('AR') }}</a> 
-                                        </div>
+                                        <button class="btn btn-secondary" type="button"> {{ strtoupper(app()->currentLocale()) }} </button>
                                     </div>
                                 </li>
                             </ul>
@@ -115,17 +107,19 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item drop-down">
-                                        <a href="">{{ __('About Us') }}</a>
-                                        <ul>
-                                            <li class="nav-item"> <a
-                                                    href="{{ route('terms') }}">{{ __('Terms & Conditions') }}</a>
-                                            </li>
-                                            <li class="nav-item"> <a
-                                                    href="{{ route('privacy') }}">{{ __('Privacy Policy') }}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    @if ($headerPages->isNotEmpty())
+                                        <li class="nav-item drop-down">
+                                            <a href="">{{ __('About Us') }}</a>
+                                            <ul>
+                                                @foreach ($headerPages as $item)
+                                                    <li class="nav-item"> <a
+                                                            href="{{ route('page', $item->slug) }}">{{ $item->title }}</a>
+                                                    </li>
+                                                @endforeach
+                                                
+                                            </ul>
+                                        </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
@@ -143,10 +137,10 @@
             
             <div class="container brtop">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <p class="copyr"> {{ __('All Rights Reserved of Sports') }} © {{ date('Y') }} </p>
+                    <div class="col-lg-4 col-md-4">
+                        <p class="copyr"> {{ __('All Rights Reserved') }} {{ settings('name') }} © {{ date('Y') }} </p>
                     </div>
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-8 col-md-8">
                         <ul class="quick-links">
                             <li><a href="{{ url('/') }}">{{ __('Home') }}</a></li>
 
@@ -161,6 +155,11 @@
                             <li><a href="{{ route('news') }}">{{ __('News') }}</a></li>
 
                             <li><a href="{{ route('videos') }}">{{ __('Videos') }}</a></li>
+
+                            @foreach ($footerPages as $item)
+                                <li><a href="{{ route('page', $item->slug) }}">{{ $item->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

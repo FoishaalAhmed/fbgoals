@@ -42,12 +42,12 @@ class FixtureController extends Controller
         return view('front.fixture', $data);
     }
 
-    public function terms()
+    public function page($slug)
     {
         $data = [
             'news' => News::latest('date')->take(5)->get(),
             'videos' => YoutubeVideo::latest('date')->take(5)->get(),
-            'page' => Page::where('id', 1)->first()
+            'page' => Page::where('slug', $slug)->first()
         ];
         (new Visitor())->storeVisitor();
         return view('front.page', $data);
