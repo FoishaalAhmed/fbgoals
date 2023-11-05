@@ -114,7 +114,7 @@
                                 <div class="list-box-expand <?= $key == 0 ? 'active' : '' ?>">
                                     <div class="news-caption">
                                         <div class="news-txt">
-                                            <h4><a  href="{{ route('news.detail', ['link' => $item->link]) }}">{{ $item->title }}</a>
+                                            <h4><a  href="{{ route('news.detail', [$item->id, str_replace([' ', '_', '&'], '-', strtolower($item->title))]) }}">{{ $item->title }}</a>
                                             </h4>
                                             <ul class="news-meta">
                                                 <li><i class="fe-calendar"></i>

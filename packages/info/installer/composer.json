@@ -1,0 +1,19 @@
+{
+	"name": "info/installer",
+	"description": "Simple Laravel Web Installer",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Foisal Ahmed",
+			"email": "foisal.cse@gmail.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"Info\\Installer\\": "src/"
+		}
+	}
+}

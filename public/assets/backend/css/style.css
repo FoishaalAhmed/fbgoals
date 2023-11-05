@@ -14,3 +14,7 @@
     width: 22px;
     height: 22px;
 }
+
+.float-right {
+    float: right;
+}
