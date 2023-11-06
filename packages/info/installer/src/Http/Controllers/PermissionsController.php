@@ -53,51 +53,51 @@ class PermissionsController extends PermissionsChecker
     public function verifyPurchaseCode(Request $request, PurchaseInterface $purchaseChecker)
     {
         $this->isInstalled();
+
         if (!$request->isMethod('POST')) {
             return view('vendor.installer.purchase-code', ['old' => $request->old]);
         }
 
         $validator = Validator::make($request->all(), [
-            'envatopurchasecode' => 'required',
-            'envatoUsername' => 'required'
+            'envato_purchase_code' => 'required',
+            'envato_username' => 'required'
         ]);
         $validator->setAttributeNames([
-            'envatopurchasecode' => 'Purchase code',
-            'envatoUsername' => 'Envato Username'
+            'envato_purchase_code' => 'Purchase code',
+            'envato_username' => 'Envato Username'
         ]);
 
         if ($validator->fails()) {
-            return view('vendor.installer.purchase-code', ['errors' => $validator->errors(), 'old' => $request->old]);
+            return view('vendor.installer.purchase-code', ['errors' => $validator->errors()]);
         }
 
         $domainName = str_replace(
-            ['https://www.', 'http://www.', 'https://', 'http://', 'www.'], '', request()->getHttpHost()
+            ['https://www.', 'http://www.', 'https://', 'http://', 'www.'],
+            '',
+            request()->getHttpHost()
         );
         $domainIp = request()->ip();
 
-        $purchaseData = $purchaseChecker->getPurchaseStatus($domainName, $domainIp, $request->envatopurchasecode, $request->envatoUsername);
-        
+        $purchaseData = $purchaseChecker->getPurchaseStatus($domainName, $domainIp, $request->envato_purchase_code, $request->envato_username);
+
         if ($purchaseData->status) {
             changeEnvironmentVariable(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU'), $purchaseData->data);
-            if($request->old == true) {
-                changeEnvironmentVariable('APP_INSTALL', 'true');
-                Cache::put('a_s_k', $purchaseData->data, 2629746);
-            }
-            return redirect('install/database');
+            return redirect()->route('installers.database.create');
         } else {
-            return view('vendor.installer.purchase-code', ['responseError' => $purchaseData->data, 'old' => $request->old]);
+            return view('vendor.installer.purchase-code', ['responseError' => $purchaseData->data]);
         }
     }
 
-    public function isInstalled() {
-        if(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU') && env('APP_INSTALL')) {
-            return view('vendor.installer.purchase-code', ['installed' => 'App is already installed']);
+    public function isInstalled()
+    {
+        if (base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU') && env('APP_INSTALL')) {
+            return view('vendor.installer.purchase-code', ['responseError' => 'App is already installed']);
         }
     }
 
-    public function clearCache(Request $request) {
-
-        if($request->cache == env(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU'))) {
+    public function clearCache(Request $request)
+    {
+        if ($request->cache == env(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU'))) {
             changeEnvironmentVariable(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU'), 'clear');
             Cache::forget('a_s_k');
             return true;

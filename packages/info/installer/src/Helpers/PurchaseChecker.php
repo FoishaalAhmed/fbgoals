@@ -11,14 +11,14 @@ class PurchaseChecker implements PurchaseInterface {
         $this->curlRequest = $curlRequest;
     }
 
-	public function getPurchaseStatus($domainName, $domainIp, $envatopurchasecode, $envatoUsername)
+	public function getPurchaseStatus($domainName, $domainIp, $envatoPurchaseCode, $envatoUsername)
     {
     	$data = array(
             'domain_name'        => $domainName,
             'domain_ip'          => $domainIp,
-            'envatopurchasecode' => $envatopurchasecode,
-            'envatoUsername' => $envatoUsername,
-            'item_id' => config('installer.item_id') ?? ''
+            'envatopurchasecode' => $envatoPurchaseCode,
+            'envatoUsername'     => $envatoUsername,
+            'item_id'            => config('installer.item_id') ?? ''
         );
 
         return $this->curlRequest->send($data);

@@ -6,10 +6,9 @@ use Info\Installer\Interfaces\CurlRequestInterface;
 
 class CurlRequest implements CurlRequestInterface
 {
-
     public function send($data)
     {
-        $url = "https://envatoapi.techvill.org/v2";
+        $url = "http://localhost/v2";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

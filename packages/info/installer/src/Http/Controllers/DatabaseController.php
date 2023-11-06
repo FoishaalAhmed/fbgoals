@@ -15,13 +15,15 @@ class DatabaseController extends AppController
      */
     public function create()
     {
-        $host     = env('DB_HOST');
-		$port     = env('DB_PORT');
-        $database = env('DB_DATABASE');
-        $username = env('DB_USERNAME');
-        $password = env('DB_PASSWORD');
+        $data = [
+            'host'     => env('DB_HOST'),
+            'port'     => env('DB_PORT'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD')
+        ];
 
-        return view('vendor.installer.database', compact('host', 'port', 'database', 'username', 'password'));
+        return view('vendor.installer.database', $data);
     }
 
     /**
@@ -46,7 +48,7 @@ class DatabaseController extends AppController
         // Update .env file
         $environmentRepository->SetDatabaseSetting($request);
 
-        return redirect('install/seedmigrate/');
+        return redirect()->route('installers.database.seed');
     }
 
     public function seedMigrate()
@@ -58,7 +60,6 @@ class DatabaseController extends AppController
 
             Artisan::call('migrate');
             Artisan::call('db:seed');
-            Artisan::call('module:seed ' . 'BlockIo');
 
             \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         } catch (Exception $e) {
@@ -66,7 +67,7 @@ class DatabaseController extends AppController
         }
 
         if (config('installer.administrator')) {
-            return redirect('install/register');
+            return redirect()->route('installers.user.create');
         }
 
         return redirect('install/finish');

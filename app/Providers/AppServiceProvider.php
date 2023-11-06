@@ -27,23 +27,25 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         Paginator::useBootstrap();
-        $match = FeaturedMatch::first();
-        $helperObject = new HelperController();
-        $matchData = json_decode($helperObject->getMatchDetail($match->match_id));
+        if (env('APP_INSTALL')) {
+            $match = FeaturedMatch::first();
+            $helperObject = new HelperController();
+            $matchData = json_decode($helperObject->getMatchDetail($match->match_id));
 
-        $headerPages = Page::where('status', 'Active')->where(function ($query) {
-            $query->where('position', 'Header')->orWhere('position', 'Both');
-        })->get(['id', 'title', 'slug']);
-        $footerPages = Page::where('status', 'Active')->where(function($query) {
-            $query->where('position', 'Footer')->orWhere('position', 'Both');
-        }) ->get(['id', 'title', 'slug']);
+            $headerPages = Page::where('status', 'Active')->where(function ($query) {
+                $query->where('position', 'Header')->orWhere('position', 'Both');
+            })->get(['id', 'title', 'slug']);
+            $footerPages = Page::where('status', 'Active')->where(function($query) {
+                $query->where('position', 'Footer')->orWhere('position', 'Both');
+            }) ->get(['id', 'title', 'slug']);
 
-        view()->share([
-            'upcomingMatch' => $match,
-            'headerPages' => $headerPages,
-            'footerPages' => $footerPages,
-            'upcomingMatchData' => $matchData, 
-            'contact' => \App\Models\Social::first(), 
-        ]);
+            view()->share([
+                'upcomingMatch' => $match,
+                'headerPages' => $headerPages,
+                'footerPages' => $footerPages,
+                'upcomingMatchData' => $matchData, 
+                'contact' => \App\Models\Social::first(), 
+            ]);
+        }
     }
 }

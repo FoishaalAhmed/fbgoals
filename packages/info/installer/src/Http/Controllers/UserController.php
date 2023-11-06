@@ -2,18 +2,18 @@
 
 namespace Info\Installer\Http\Controllers;
 
-use Illuminate\Http\Request;
-use RegisterController;
 use Validator;
+use AppController;
+use Illuminate\Http\Request;
 
-class UserController extends RegisterController
+class UserController extends AppController
 {
     /**
      * Show form.
      *
      * @return \Illuminate\View\View
      */
-    public function createUser()
+    public function create()
     {
     	$data['fields'] = config('installer.fields');
         return view('vendor.installer.register', $data);
@@ -25,7 +25,7 @@ class UserController extends RegisterController
      * @param    Illuminate\Http\Request $request
      * @return
      */
-    public function storeUser(Request $request)
+    public function store(Request $request)
     {
         $request->merge(['password_confirmation' => $request->password, 'role' => 1, 'from_installer' => true]);
 

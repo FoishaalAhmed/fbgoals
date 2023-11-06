@@ -180,3 +180,35 @@ if (!function_exists('getFavIcon')) {
         return !empty(settings('favicon')) && file_exists(settings('favicon')) ? settings('favicon') : 'public/images/dummy/logo-sm.png';
     }
 }
+
+if (!function_exists('changeEnvironmentVariable')) {
+
+    /**
+     * Change Environment Variable
+    */
+
+    function changeEnvironmentVariable($key, $value)
+    {
+        $path = base_path('.env');
+
+        if (is_bool(env($key))) {
+            $old = env($key) ? 'true' : 'false';
+        } elseif (env($key) === null) {
+            $old = 'null';
+        } else {
+            $old = env($key);
+        }
+
+        if (file_exists($path)) {
+            if ($old == 'null') {
+                file_put_contents($path, "\n$key=" . str_replace(' ', '', $value), FILE_APPEND);
+            } else {
+                file_put_contents($path, str_replace(
+                    "$key=" . $old,
+                    "$key=" . str_replace(' ', '', $value),
+                    file_get_contents($path)
+                ));
+            }
+        }
+    }
+}

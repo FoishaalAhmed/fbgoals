@@ -10,7 +10,7 @@ class Locale
     public function handle($request, Closure $next)
     {
         
-        $defaultLang = Setting::where(['name' => 'default_language', 'type' => 'General'])->first()->value;
+        $defaultLang = env('APP_INSTALL') ? Setting::where(['name' => 'default_language', 'type' => 'General'])->first()->value : 'en';
         $locale = is_null($defaultLang) ? 'en' : $defaultLang;
         app()->setLocale($locale);
         return $next($request);

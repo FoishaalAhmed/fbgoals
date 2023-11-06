@@ -18,3 +18,7 @@
 .float-right {
     float: right;
 }
+
+.ml-2 {
+    margin-left: 20px;
+}
