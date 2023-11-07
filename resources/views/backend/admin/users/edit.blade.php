@@ -24,7 +24,7 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label for="name" class="form-label">{{ __('Name') }}</label>
+                                    <label for="name" class="form-label">{{ __('Name') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="name" id="name" class="form-control" placeholder="{{ __('Name') }}" required="" value="{{ old('name', $user->name) }}">
                                     @error('name')
                                         <div class="invalid-feedback error">
@@ -33,7 +33,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="email" class="form-label">{{ __('Email') }}</label>
+                                    <label for="email" class="form-label">{{ __('Email') }} <span class="text-danger"> * </span></label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('Email') }}" required="" value="{{ old('email', $user->email) }}">
                                     @error('email')
                                         <div class="invalid-feedback error">
@@ -42,7 +42,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="phone" class="form-label">{{ __('Phone') }}</label>
+                                    <label for="phone" class="form-label">{{ __('Phone') }} <span class="text-danger"> * </span></label>
                                     <input type="tel" name="phone" id="phone" class="form-control" placeholder="{{ __('Phone') }}" required="" value="{{ old('phone', $user->phone) }}">
                                     @error('phone')
                                         <div class="invalid-feedback error">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="permission" class="form-label">{{ __('Permission') }}</label>
+                                    <label for="permission" class="form-label">{{ __('Permission') }} <span class="text-danger"> * </span> </label>
                                     <select class="form-control select2-multiple" name="permission[]" data-toggle="select2" data-width="100%" multiple="multiple" data-placeholder="{{ __('Choose Preferred permission') }}">
                                         @foreach ($permissions as $permission)
                                             <option value="{{ $permission->name }}" {{ in_array($permission->id, $permissionArray) ? 'selected' : '' }}>{{ $permission->name }}</option>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="address" class="form-label">{{ __('Address') }}</label>
+                                    <label for="address" class="form-label">{{ __('Address') }} <span class="text-danger"> * </span></label>
                                     <textarea name="address" class="form-control" id="address" placeholder="{{ __('Address') }}" rows="5" required="">{{ old('address', $user->address) }}</textarea>
                                     @error('address')
                                         <div class="invalid-feedback error">

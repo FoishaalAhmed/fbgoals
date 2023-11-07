@@ -120,7 +120,7 @@ button.btn.btn-link i {
     font-size: 15px !important;
 }
 .padding-0-5 {
-    padding: 0 5px;
+    padding: 0 5px !important;
 }
 .align-color-font {
     text-align: center;

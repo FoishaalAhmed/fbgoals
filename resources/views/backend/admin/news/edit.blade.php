@@ -27,7 +27,7 @@
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-lg-6 mb-3">
-                                            <label for="basic-datepicker" class="form-label">{{ __('Date') }}</label>
+                                            <label for="basic-datepicker" class="form-label">{{ __('Date') }} <span class="text-danger"> * </span></label>
                                             <input type="text" name="date" id="basic-datepicker" class="form-control" placeholder="{{ __('Date') }}" required="" value="{{ old('date', $news->date) }}">
                                             @error('date')
                                                 <div class="invalid-feedback error">
@@ -36,7 +36,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-lg-6 mb-3">
-                                            <label for="title" class="form-label">{{ __('Title') }}</label>
+                                            <label for="title" class="form-label">{{ __('Title') }} <span class="text-danger"> * </span></label>
                                             <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title', $news->title) }}">
                                             @error('title')
                                                 <div class="invalid-feedback error">
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6 mb-3">
-                                            <label for="tags" class="form-label">{{ __('Tags') }}</label>
+                                            <label for="tags" class="form-label">{{ __('Tags') }} <span class="text-danger"> * </span></label>
                                             <input type="text" name="tags" id="tags" class="form-control" placeholder="{{ __('Tags') }}" required="" value="{{ old('tags', $news->tags) }}">
                                             @error('tags')
                                                 <div class="invalid-feedback error">
@@ -56,7 +56,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-lg-6 mb-3">
-                                            <label for="example-select" class="form-label">{{ __('Status') }}</label>
+                                            <label for="example-select" class="form-label">{{ __('Status') }} <span class="text-danger"> * </span></label>
                                             <select class="form-select" name="status" id="example-select" required="">
                                                 <option value="Published" {{ $news->status == 'Published' ? 'selected' : '' }}>{{ __('Published') }}</option>
                                                 <option value="Unpublished" {{ $news->status == 'Unpublished' ? 'selected' : '' }}>{{ __('Unpublished') }}</option>
@@ -70,8 +70,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12 mb-3">
-                                            <label for="content" class="form-label">{{ __('Content') }}</label>
-                                            <textarea name="content" id="editor">{{ old('content', $news->tags) }}</textarea>
+                                            <label for="content" class="form-label">{{ __('Content') }} <span class="text-danger"> * </span></label>
+                                            <textarea name="content" id="editor" required>{{ old('content', $news->tags) }}</textarea>
                                             @error('content')
                                                 <div class="invalid-feedback error">
                                                     {{ $message }}

@@ -19,7 +19,7 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label for="title" class="form-label">{{ __('Title') }}</label>
+                                    <label for="title" class="form-label">{{ __('Title') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ $page->title }}">
                                     @error('title')
                                         <div class="invalid-feedback error">
@@ -28,7 +28,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="position" class="form-label">{{ __('Position') }}</label>
+                                    <label for="position" class="form-label">{{ __('Position') }} <span class="text-danger"> * </span></label>
                                     <select class="form-select" name="position" id="example-select" required="">
                                         <option value="Header" {{ $page->position == 'Header' ? 'selected' : '' }}>{{ __('Header') }}</option>
                                         <option value="Footer" {{ $page->position == 'Footer' ? 'selected' : '' }}>{{ __('Footer') }}</option>
@@ -41,7 +41,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="status" class="form-label">{{ __('Status') }}</label>
+                                    <label for="status" class="form-label">{{ __('Status') }} <span class="text-danger"> * </span></label>
                                     <select class="form-select" name="status" id="example-select" required="">
                                         <option value="Active" {{ $page->status == 'Active' ? 'selected' : '' }}>{{ __('Active') }}</option>
                                         <option value="Inactive" {{ $page->status == 'Inactive' ? 'selected' : '' }}>{{ __('Inactive') }}</option>
@@ -55,8 +55,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="content" class="form-label">{{ __('Content') }}</label>
-                                    <textarea name="content" id="editor">{{ $page->content }}</textarea>
+                                    <label for="content" class="form-label">{{ __('Content') }} <span class="text-danger"> * </span></label>
+                                    <textarea name="content" id="editor" required>{{ $page->content }}</textarea>
                                     @error('content')
                                         <div class="invalid-feedback error">
                                             {{ $message }}

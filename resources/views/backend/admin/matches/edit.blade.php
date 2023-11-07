@@ -21,7 +21,7 @@
                             @method('PUT')
                             <div class="row mb-3">
                                 <label for="matches"
-                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Match') }}</label>
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Match') }} <span class="text-danger"> * </span> </label>
                                 <div class="col-8 col-xl-4">
                                     <input type="text" id="matches" class="form-control" name="matches"
                                         placeholder="{{ __('Match') }}" required=""
@@ -35,13 +35,17 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="link"
-                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Match Links') }}</label>
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Match Links') }} <span class="text-danger"> * </span></label>
                                 <div class="col-8 col-xl-4">
-                                    @foreach ($match->links as $item)
+                                    @forelse ($match->links as $item)
                                         <input type="text" id="link" class="form-control"
                                             placeholder="{{ __('Match Links') }}" name="links[]"
                                             value="{{ $item->link }}">
-                                    @endforeach
+                                    @empty
+                                        <input type="text" id="link" class="form-control"
+                                            placeholder="{{ __('Match Links') }}" name="links[]"
+                                            required="">
+                                    @endforelse
                                     <span id="links"></span>
                                     @error('links')
                                         <div class="invalid-feedback error">

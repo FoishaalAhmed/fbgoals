@@ -44,8 +44,7 @@
                                             <td>{{ $item->tags }} </td>
                                             <td>{{ $item->status }} </td>
                                             <td>
-                                                <img src="{{ asset($item->photo) }}" alt="contact-img" title="contact-img"
-                                                    class="rounded-circle avatar-sm">
+                                                <img src="{{ asset($item->photo) }}" class="rounded-circle avatar-sm">
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.news.edit', $item->id) }}"

@@ -23,7 +23,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-4 mb-3">
-                                    <label for="name" class="form-label">{{ __('Name') }}</label>
+                                    <label for="name" class="form-label">{{ __('Name') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="name" id="name" class="form-control" placeholder="{{ __('Name') }}" required="" value="{{ old('name') }}">
                                     @error('name')
                                         <div class="invalid-feedback error">
@@ -32,7 +32,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="email" class="form-label">{{ __('Email') }}</label>
+                                    <label for="email" class="form-label">{{ __('Email') }} <span class="text-danger"> * </span></label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="{{ __('Email') }}" required="" value="{{ old('email') }}">
                                     @error('email')
                                         <div class="invalid-feedback error">
@@ -41,7 +41,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-4 mb-3">
-                                    <label for="phone" class="form-label">{{ __('Phone') }}</label>
+                                    <label for="phone" class="form-label">{{ __('Phone') }} <span class="text-danger"> * </span></label>
                                     <input type="tel" name="phone" id="phone" class="form-control" placeholder="{{ __('Phone') }}" required="" value="{{ old('phone') }}">
                                     @error('phone')
                                         <div class="invalid-feedback error">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
-                                    <label for="password" class="form-label">{{ __('Password') }}</label>
+                                    <label for="password" class="form-label">{{ __('Password') }} <span class="text-danger"> * </span></label>
                                     <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Password') }}" required="">
                                     @error('password')
                                         <div class="invalid-feedback error">
@@ -61,11 +61,11 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-3">
-                                    <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
+                                    <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }} <span class="text-danger"> * </span></label>
                                     <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}" required="">
                                 </div>
                                 <div class="col-lg-12 mb-3">
-                                    <label for="permission" class="form-label">{{ __('Permission') }}</label>
+                                    <label for="permission" class="form-label">{{ __('Permission') }} <span class="text-danger"> * </span></label>
                                     <select class="form-control select2-multiple" name="permission[]" data-toggle="select2" data-width="100%" multiple="multiple" data-placeholder="{{ __('Choose Preferred permission') }}">
                                         @foreach ($permissions as $permission)
                                             <option value="{{ $permission->name }}">{{ $permission->name }}</option>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="address" class="form-label">{{ __('Address') }}</label>
+                                    <label for="address" class="form-label">{{ __('Address') }} <span class="text-danger"> * </span></label>
                                     <textarea name="address" class="form-control" id="address" placeholder="{{ __('Address') }}" rows="5" required="">{{ old('address') }}</textarea>
                                     @error('address')
                                         <div class="invalid-feedback error">

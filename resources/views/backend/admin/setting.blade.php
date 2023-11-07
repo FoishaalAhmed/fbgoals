@@ -81,10 +81,9 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="name"
-                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Name') }}</label>
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Name') }} <span class="text-danger"> * </span></label>
                                 <div class="col-8 col-xl-4">
-                                    <input type="text" id="name" class="form-control" name="name" required=""
-                                        placeholder="{{ __('Name') }}" value="{{ settings('name') }}">
+                                    <input type="text" id="name" class="form-control" name="name" required="" placeholder="{{ __('Name') }}" value="{{ settings('name') }}">
                                     @error('name')
                                         <div class="invalid-feedback error">
                                             {{ $message }}
@@ -133,10 +132,10 @@
                             </div>
                             <div class="row mb-3">
                                 <label for="api_key"
-                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Api Key') }}</label>
+                                    class="col-4 col-xl-2 offset-lg-3 col-form-label text-end">{{ __('Api Key') }} <span class="text-danger"> * </span></label>
                                 <div class="col-8 col-xl-4">
                                     <input type="text" id="api_key" class="form-control" name="api_key"
-                                        placeholder="{{ __('Api Key') }}" value="{{ settings('api_key') }}">
+                                        placeholder="{{ __('Api Key') }}" value="{{ settings('api_key') }}" required="">
                                     @error('api_key')
                                         <div class="invalid-feedback error">
                                             {{ $message }}

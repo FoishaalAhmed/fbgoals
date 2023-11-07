@@ -17,7 +17,7 @@
                             <div class="row">
                                 <!-- Season -->
                                 <div class="col-lg-12 mb-3">
-                                    <label for="season" class="form-label">{{ __('Season') }}</label>
+                                    <label for="season" class="form-label">{{ __('Season') }} <span class="text-danger"> * </span></label>
                                     <textarea class="form-control" name="season" placeholder="{{ __('Season') }}" id="season" rows="5">{{ old('season', $season->season) }}</textarea>
                                     @error('season')
                                         <div class="invalid-feedback error">

@@ -253,7 +253,7 @@
                                                                         <div class="mtl-left"> <img
                                                                                 src="{{ $match['homeTeamLogo'] }}"
                                                                                 >
-                                                                            <strong><a class="color-bcc9ea;"
+                                                                            <strong><a class="color-bcc9ea"
                                                                                     href="{{ route('teams.matches', [$match['homeTeamId'], str_replace([' ', '_', "'", '&'], '-', strtolower($match['homeTeamName'])), 'league' => $match['leagueId']]) }}">{{ $match['homeTeamName'] }}</a></strong>
                                                                         </div>
                                                                         @if (!in_array($match['shortStatus'], $statusArray))

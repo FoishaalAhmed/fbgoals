@@ -39,13 +39,13 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <ul class="topsocial">
-                                <li><a href="{{ $contact->facebook }}" class="fb"><i
+                                <li><a href="{{ $contact ? $contact->facebook : '#' }}" class="fb"><i
                                             class="fe-facebook"></i></a></li>
-                                <li><a href="{{ $contact->twitter }}" class="tw"><i class="fe-twitter"></i></a>
+                                <li><a href="{{ $contact ? $contact->twitter : '#' }}" class="tw"><i class="fe-twitter"></i></a>
                                 </li>
-                                <li><a href="{{ $contact->instagram }}" class="insta"><i
+                                <li><a href="{{ $contact ? $contact->instagram : '#' }}" class="insta"><i
                                             class="fe-instagram"></i></a></li>
-                                <li><a href="{{ $contact->youtube }}" class="yt"><i class="fe-youtube"></i></a>
+                                <li><a href="{{ $contact ? $contact->youtube : '#' }}" class="yt"><i class="fe-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>

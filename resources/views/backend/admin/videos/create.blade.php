@@ -23,7 +23,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
-                                    <label for="basic-datepicker" class="form-label">{{ __('Date') }}</label>
+                                    <label for="basic-datepicker" class="form-label">{{ __('Date') }}<span class="text-danger"> * </span> </label>
                                     <input type="text" name="date" id="basic-datepicker" class="form-control" placeholder="{{ __('Date') }}" required="" value="{{ old('date') }}">
                                     @error('date')
                                         <div class="invalid-feedback error">
@@ -32,7 +32,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-3">
-                                    <label for="title" class="form-label">{{ __('Title') }}</label>
+                                    <label for="title" class="form-label">{{ __('Title') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title') }}">
                                     @error('title')
                                         <div class="invalid-feedback error">
@@ -43,7 +43,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="link" class="form-label">{{ __('Link') }} <small><i>- {{ __('only youtube link') }}</i></small></label>
+                                    <label for="link" class="form-label">{{ __('Link') }} <small><i>- {{ __('only youtube link') }}</i></small> <span class="text-danger"> * </span></label>
                                     <input type="text" name="link" id="link" class="form-control" placeholder="{{ __('Link') }}" required="" value="{{ old('link') }}">
                                     @error('link')
                                         <div class="invalid-feedback error">

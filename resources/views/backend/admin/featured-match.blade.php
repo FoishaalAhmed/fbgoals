@@ -17,7 +17,7 @@
                             
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
-                                    <label for="title" class="form-label">{{ __('Title') }}</label>
+                                    <label for="title" class="form-label">{{ __('Title') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title', $match->title) }}">
                                     @error('title')
                                         <div class="invalid-feedback error">
@@ -26,7 +26,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-3">
-                                    <label for="match_id" class="form-label">{{ __('Match Id') }}</label>
+                                    <label for="match_id" class="form-label">{{ __('Match Id') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="match_id" id="match_id" class="form-control" placeholder="{{ __('Match Id') }}" required="" value="{{ old('match_id', $match->match_id) }}">
                                     @error('match_id')
                                         <div class="invalid-feedback error">

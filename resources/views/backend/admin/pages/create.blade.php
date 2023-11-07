@@ -18,7 +18,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
-                                    <label for="title" class="form-label">{{ __('Title') }}</label>
+                                    <label for="title" class="form-label">{{ __('Title') }} <span class="text-danger"> * </span></label>
                                     <input type="text" name="title" id="title" class="form-control" placeholder="{{ __('Title') }}" required="" value="{{ old('title') }}">
                                     @error('title')
                                         <div class="invalid-feedback error">
@@ -27,7 +27,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-lg-6 mb-3">
-                                    <label for="position" class="form-label">{{ __('Position') }}</label>
+                                    <label for="position" class="form-label">{{ __('Position') }} <span class="text-danger"> * </span></label>
                                     <select class="form-select" name="position" id="example-select" required="">
                                         <option value="Header" {{ old('position') == 'Header' ? 'selected' : '' }}>{{ __('Header') }}</option>
                                         <option value="Footer" {{ old('position') == 'Footer' ? 'selected' : '' }}>{{ __('Footer') }}</option>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
-                                    <label for="content" class="form-label">{{ __('Content') }}</label>
+                                    <label for="content" class="form-label">{{ __('Content') }} <span class="text-danger"> * </span></label>
                                     <textarea name="content" id="editor">{{ old('content') }}</textarea>
                                     @error('content')
                                         <div class="invalid-feedback error">
