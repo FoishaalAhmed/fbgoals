@@ -44,7 +44,7 @@
                 </div> <!-- end card-body -->
                 <div class="card-footer text-muted">
                     <a href="{{ route('installers.index') }}" class="btn btn-primary waves-effect waves-light"> <i class="fe-arrow-left"></i> {{ __('Cancel') }} </a>
-                    <button class="btn btn-primary waves-effect waves-light float-right" type="submit"> {{ __('Create database') }} </button>
+                    <button class="btn btn-primary waves-effect waves-light float-right" type="submit"> {{ __('Create Database') }} <i class="fe-arrow-right"></i></button>
                 </div>
             </form>
         </div>

@@ -22,7 +22,7 @@ Route::group(['prefix' => 'installer', 'middleware' => ['web', 'installed'], 'as
     Route::get('permissions', [PermissionsController::class,'checkPermissions'])->name('check.permissions');
     Route::get('register', [UserController::class,'create'])->name('user.create');
     Route::post('register', [UserController::class,'store'])->name('user.store');
-    Route::get('finish', [FinalController::class,'finish']);
+    Route::get('finish', [FinalController::class,'finish'])->name('finish');
 });
 
 if (!env('INSTALL_APP_SECRET')) {

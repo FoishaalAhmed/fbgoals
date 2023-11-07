@@ -2,9 +2,8 @@
 
 namespace Info\Installer\Http\Controllers;
 
-use Illuminate\Support\Facades\Cache;
-use AppController;
 use Artisan;
+use AppController;
 
 class FinalController extends AppController
 {
@@ -17,7 +16,6 @@ class FinalController extends AppController
     {
         changeEnvironmentVariable('APP_DEBUG', false);
         changeEnvironmentVariable('APP_INSTALL', 'true');
-        Cache::put('a_s_k', env(base64_decode('SU5TVEFMTF9BUFBfU0VDUkVU')), 2629746);
 
         // Change key in .env
         Artisan::call('key:generate');

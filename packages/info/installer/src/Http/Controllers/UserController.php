@@ -27,40 +27,35 @@ class UserController extends AppController
      */
     public function store(Request $request)
     {
-        $request->merge(['password_confirmation' => $request->password, 'role' => 1, 'from_installer' => true]);
+        $permissions = \Spatie\Permission\Models\Permission::oldest('name')->pluck('name')->toArray();
+
+        $request->merge([
+            'password_confirmation' => $request->password,
+            'address' => 'address',
+            'phone' => '01700000000',
+            'phone' => '01700000000',
+            'permission' => $permissions
+        ]);
 
         // Form validation with form request or validator method
         $validator = config('installer.validator');
+
         if ($validator !== null) {
             app($validator);
         } else {
             $validator = Validator::make($request->all(), [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'email' => 'required|unique:admins,email',
-                'password' => 'required|confirmed',
-                'password_confirmation' => 'required'
+                'name' => 'required',
+                'email' => 'required|unique:users,email',
+                'password' => 'required|confirmed'
             ]);
+
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             }
         }
-    	$request->is_installer = true;
-        // Administrator creation
-        $class = config('installer.creator.class');
-        if ($class !== null) {
-            $class  = app($class);
-            $method = config('installer.creator.method');
-            $user   = $class->{$method}($request, 1);
-        } else {
-            $user = $this->create($request->all());
-        }
 
-        if (method_exists($this, 'userAddValues')) {
-            return $this->userAddValues($user);
-        }
-
-        return redirect('install/finish');
+        (new \App\Models\User())->storeUser($request);
+        return redirect()->route('installers.finish');
     }
 
 }

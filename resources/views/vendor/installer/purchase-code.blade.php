@@ -41,7 +41,7 @@
                 </div> <!-- end card-body -->
                 <div class="card-footer text-muted">
                     <a href="{{ route('installers.check.permissions') }}" class="btn btn-primary waves-effect waves-light"> <i class="fe-arrow-left"></i> {{ __('Cancel') }} </a>
-                    <button class="btn btn-primary waves-effect waves-light float-right" type="submit"> {{ __('Verify Purchase Code') }} </button>
+                    <button class="btn btn-primary waves-effect waves-light float-right" type="submit"> {{ __('Verify Purchase Code') }} <i class="fe-arrow-right"></i> </button>
                 </div>
             </form>
         </div>
