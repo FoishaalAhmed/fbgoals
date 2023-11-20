@@ -124,9 +124,6 @@
                                         </div>
                                         <!--Expand-->
                                     @endforeach
-                                    <div class="buyticket-btn"><a href="{{ route('news') }}">{{ __('View All') }}</a>
-                                    </div>
-
                                 </div>
                             @endif
                             @if ($videos->isNotEmpty())
@@ -148,9 +145,6 @@
                                                         alt="">
                                                 </div>
                                             @endforeach
-                                            <div class="buyticket-btn"><a
-                                                    href="{{ route('videos') }}">{{ __('View All') }}</a>
-                                            </div>
                                         </div>
                                     </div>
                                     <!--widget end-->

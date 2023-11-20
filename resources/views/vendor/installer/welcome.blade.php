@@ -7,7 +7,7 @@
         <div class="col-lg-2"></div>
         <div class="col-lg-8 card">
             <div class="card-body">
-                <h5 class="card-title text-center">{{ __('FBGOALS') }}</h5>
+                <h5 class="card-title text-center">{{ __('Football XT') }}</h5>
                 <p class="card-text text-center">{{ env('APP_VERSION') }}</p>
                 <hr>
                 <h5 class="card-title text-center">{{ __('Welcome to the Installer !') }}</h5>

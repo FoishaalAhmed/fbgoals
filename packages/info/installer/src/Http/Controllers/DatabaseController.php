@@ -63,6 +63,9 @@ class DatabaseController extends AppController
 
             \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         } catch (Exception $e) {
+
+            dd();
+
             return view('vendor.installer.database-error', ['error' => $e->getMessage()]);
         }
 

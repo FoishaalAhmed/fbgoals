@@ -15,7 +15,7 @@ class SettingTableSeeder extends Seeder
         \App\Models\Setting::insert([
             [
                 'name' => 'name',
-                'value' => null,
+                'value' => 'Football XT',
                 'type' => 'General',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
