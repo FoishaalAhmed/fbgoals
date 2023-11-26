@@ -298,5 +298,17 @@
     "to": "à",
     "of": "de",
     "results": "résultats",
-    "Pagination Navigation": "Navigation de pagination"
+    "Pagination Navigation": "Navigation de pagination",
+    "The provided password is incorrect.": "Le mot de passe fourni est incorrect.",
+    "These credentials do not match our records.": "Ces informations d'identification ne correspondent pas à nos enregistrements.",
+    "Too many login attempts. Please try again in :seconds seconds": "Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes",
+    "Ad Updated Successfully!": "Annonce mise à jour avec succès !",
+    "Update Ad": "Mettre à jour l'annonce",
+    "Ad": "Annonce",
+    "All Ads": "Toutes les annonces",
+    "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100": "Taille de bureau : 970x90, Taille de l'onglet : 728x90, Taille mobile : 320x100",
+    "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250": "Taille de bureau : 970x90, Taille de l'onglet : 336x280, Taille mobile : 300x250",
+    "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250": "Taille de bureau : 728x90, Taille de l'onglet : 336x280, Taille mobile : 300x250",
+    "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250": "Taille de bureau : 300x250, Taille de l'onglet : 300x250, Taille mobile : 300x250",
+    "Ads": "Annonces"
 }

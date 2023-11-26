@@ -300,5 +300,17 @@
     "to": "до",
     "of": "из",
     "results": "результатов",
-    "Pagination Navigation": "Навигация по страницам"
+    "Pagination Navigation": "Навигация по страницам",
+    "The provided password is incorrect.": "Предоставленный пароль неверен.",
+    "These credentials do not match our records.": "Эти учетные данные не соответствуют нашим записям.",
+    "Too many login attempts. Please try again in :seconds seconds": "Слишком много попыток входа. Пожалуйста, повторите попытку через :seconds секунд",
+    "Ad Updated Successfully!": "Объявление успешно обновлено!",
+    "Update Ad": "Обновить объявление",
+    "Ad": "Объявление",
+    "All Ads": "Все объявления",
+    "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100": "Размер для компьютера: 970x90, Размер для планшета: 728x90, Размер для мобильного: 320x100",
+    "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250": "Размер для компьютера: 970x90, Размер для планшета: 336x280, Размер для мобильного: 300x250",
+    "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250": "Размер для компьютера: 728x90, Размер для планшета: 336x280, Размер для мобильного: 300x250",
+    "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250": "Размер для компьютера: 300x250, Размер для планшета: 300x250, Размер для мобильного: 300x250",
+    "Ads": "Объявления"
 }

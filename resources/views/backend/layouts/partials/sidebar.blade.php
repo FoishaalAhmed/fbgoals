@@ -122,6 +122,14 @@
                         </a>
                     </li>
                 @endcan
+                @can('Ad')
+                    <li class="menu-item {{ request()->is('admin/ads') || request()->is('admin/ads/*') ? 'menuitem-active' : '' }}">
+                        <a href="{{ route('admin.ads.index') }}" class="menu-link {{ request()->is('admin/ads') || request()->is('admin/ads/*') ? 'active' : '' }}">
+                            <span class="menu-icon"><i class="fe-image"></i></span>
+                            <span class="menu-text"> {{ __('Ads') }} </span>
+                        </a>
+                    </li>
+                @endcan
             @endif
         </ul>
         <!--- End Menu -->

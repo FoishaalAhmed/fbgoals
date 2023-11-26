@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
+    AdController,
     FeaturedMatchController,
     FootballMatchController,
     YoutubeVideoController,
@@ -52,6 +53,12 @@ Route::controller(SettingController::class)->prefix('settings')->as('settings.')
 Route::controller(SettingController::class)->prefix('settings')->as('settings.')->group(function () {
     Route::get('', 'create')->name('create');
     Route::post('/store', 'store')->name('store');;
+});
+
+Route::controller(AdController::class)->prefix('ads')->as('ads.')->group(function () {
+    Route::get('', 'index')->name('index');
+    Route::get('/edit/{ad}', 'edit')->name('edit');
+    Route::put('/update/{ad}', 'update')->name('update');
 });
 
 Route::get('set-language', [LanguageController::class, 'index'])->name('set.language');

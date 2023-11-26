@@ -29,5 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Settings Seeded Successfully!');
         $this->call(SeasonTableSeeder::class);
         $this->command->info('Seasons Seeded Successfully!');
+        $this->call(AdTableSeeder::class);
+        $this->command->info('Ads Seeded Successfully!');
     }
 }

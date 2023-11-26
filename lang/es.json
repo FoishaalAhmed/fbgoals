@@ -278,8 +278,6 @@
     "A new verification link has been sent to the email address you provided during registration.": "Se ha enviado un nuevo enlace de verificación a la dirección de correo electrónico que proporcionó durante el registro.",
     "Resend Verification Email": "Reenviar Correo de Verificación",
     "Log Out": "Cerrar Sesión",
-
-
     "You're logged in!": "¡Has iniciado sesión!",
     "Delete Account": "Eliminar Cuenta",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Una vez que se elimine su cuenta, todos sus recursos y datos se eliminarán permanentemente. Antes de eliminar su cuenta, descargue los datos o la información que desee conservar.",
@@ -300,5 +298,17 @@
     "to": "a",
     "of": "de",
     "results": "resultados",
-    "Pagination Navigation": "Navegación de Paginación"
+    "Pagination Navigation": "Navegación de Paginación",
+    "The provided password is incorrect.": "La contraseña proporcionada es incorrecta.",
+    "These credentials do not match our records.": "Estas credenciales no coinciden con nuestros registros.",
+    "Too many login attempts. Please try again in :seconds seconds": "Demasiados intentos de inicio de sesión. Por favor, inténtelo de nuevo en :seconds segundos",
+    "Ad Updated Successfully!": "¡Anuncio actualizado con éxito!",
+    "Update Ad": "Actualizar anuncio",
+    "Ad": "Anuncio",
+    "All Ads": "Todos los anuncios",
+    "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100": "Tamaño de escritorio: 970x90, Tamaño de pestaña: 728x90, Tamaño móvil: 320x100",
+    "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250": "Tamaño de escritorio: 970x90, Tamaño de pestaña: 336x280, Tamaño móvil: 300x250",
+    "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250": "Tamaño de escritorio: 728x90, Tamaño de pestaña: 336x280, Tamaño móvil: 300x250",
+    "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250": "Tamaño de escritorio: 300x250, Tamaño de pestaña: 300x250, Tamaño móvil: 300x250",
+    "Ads": "Anuncios"
 }

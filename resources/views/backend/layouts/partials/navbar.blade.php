@@ -51,11 +51,6 @@
                         <img src="{{ asset('public/assets/backend/images/flags/ar.jpg') }}" alt="user-image"
                             class="me-1" height="12"> <span class="align-middle">Arabic</span>
                     </a>
-                    <!-- item-->
-                    <a href="{{ route('admin.set.language', ['lang' => 'ch']) }}" class="dropdown-item">
-                        <img src="{{ asset('public/assets/backend/images/flags/ch.jpg') }}" alt="user-image"
-                            class="me-1" height="12"> <span class="align-middle">Chinise</span>
-                    </a>
 
                     <!-- item-->
                     <a href="{{ route('admin.set.language', ['lang' => 'es']) }}" class="dropdown-item">

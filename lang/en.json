@@ -298,5 +298,17 @@
     "to": "to",
     "of": "of",
     "results": "results",
-    "Pagination Navigation": "Pagination Navigation"
+    "Pagination Navigation": "Pagination Navigation",
+    "The provided password is incorrect.":"The provided password is incorrect.",
+    "These credentials do not match our records.":"These credentials do not match our records.",
+    "Too many login attempts. Please try again in :seconds seconds":"Too many login attempts. Please try again in :seconds seconds",
+    "Ad Updated Successfully!":"Ad Updated Successfully!",
+    "Update Ad":"Update Ad",
+    "Ad":"Ad",
+    "All Ads":"All Ads",
+    "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100":"Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100",
+    "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250":"Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250",
+    "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250":"Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250",
+    "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250":"Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250",
+    "Ads":"Ads"
 }

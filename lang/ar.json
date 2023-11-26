@@ -297,6 +297,18 @@
     "to": "إلى",
     "of": "من",
     "results": "النتائج",
-    "Pagination Navigation": "تصفح الصفحات"
+    "Pagination Navigation": "تصفح الصفحات",
+    "The provided password is incorrect.": "كلمة المرور المقدمة غير صحيحة.",
+    "These credentials do not match our records.": "هذه البيانات لا تتطابق مع سجلاتنا.",
+    "Too many login attempts. Please try again in :seconds seconds": "عدد كبير من محاولات تسجيل الدخول. يرجى المحاولة مرة أخرى في :seconds ثانية",
+    "Ad Updated Successfully!": "تم تحديث الإعلان بنجاح!",
+    "Update Ad": "تحديث الإعلان",
+    "Ad": "إعلان",
+    "All Ads": "كل الإعلانات",
+    "Ads": "إعلانات",
+    "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100": "Desktop Size: 970x90, Tab Size: 728x90, Mobile Size: 320x100",
+    "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250": "Desktop Size: 970x90, Tab Size: 336x280, Mobile Size: 300x250",
+    "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250": "Desktop Size: 728x90, Tab Size: 336x280, Mobile Size: 300x250",
+    "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250": "Desktop Size: 300x250, Tab Size: 300x250, Mobile Size: 300x250"
 }
    
