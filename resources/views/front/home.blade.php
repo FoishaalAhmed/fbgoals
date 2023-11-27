@@ -29,7 +29,13 @@
                             </div>
                         </div>
                     @endif
-
+                    @if ($ads->where('position', 'top')->first())
+                        <div class="col-md-12" style="margin-bottom: 10px;"> 
+                            <center>
+                                {!! $ads->where('position', 'top')->first()->ad !!}
+                            </center>
+                        </div>
+                    @endif
                     <div class="col-lg-3 col-md-3">
                         <div class="point-table-widget mb-10">
                             <table>
@@ -426,6 +432,7 @@
                 </div>
             </div>
         </section>
+        
         <!--Sports Widgets End-->
     </div>
     <!--Main Content End-->

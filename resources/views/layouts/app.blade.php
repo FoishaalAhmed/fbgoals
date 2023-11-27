@@ -132,11 +132,31 @@
 
         @yield('content')
 
+        @if ($ads->where('position', 'bottom')->first())
+            <div class="banner-wrap text-center wf100 mb-20"> 
+                {!! $ads->where('position', 'bottom')->first()->ad !!}
+            </div>
+        @endif
+
         <!--Main Footer Start-->
         <footer class="wf100 main-footer">
             
             <div class="container brtop">
                 <div class="row">
+                    @if ($ads->where('position', 'sticky')->first())
+                        <div class="col-md-12" style="margin-bottom: 10px;"> 
+                            <center>
+                                {!! $ads->where('position', 'sticky')->first()->ad !!}
+                            </center>
+                        </div>
+                    @endif
+                    {{-- @if ($ads->where('position', 'pop up')->first())
+                        <div class="col-md-12" style="margin-bottom: 10px;"> 
+                            <center>
+                                {!! $ads->where('position', 'pop up')->first()->ad !!}
+                            </center>
+                        </div>
+                    @endif --}}
                     <div class="col-lg-4 col-md-4">
                         <p class="copyr"> {{ __('All Rights Reserved') }} {{ settings('name') }} © {{ date('Y') }} </p>
                     </div>

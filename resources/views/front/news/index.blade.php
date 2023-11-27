@@ -8,6 +8,13 @@
         <div class="news-grid">
             <div class="container">
                 <div class="row">
+                    @if ($ads->where('position', 'top')->first())
+                            <div class="col-md-12 mb-10"> 
+                                <center>
+                                    {!! $ads->where('position', 'top')->first()->ad !!}
+                                </center>
+                            </div>
+                        @endif
                     <div class="col-lg-8">
                         <div class="row">
                             @foreach ($news as $item)
@@ -52,6 +59,11 @@
                             <!--widget start-->
                             @include('front.upcomingMatch')
                             <!--widget end-->
+                            @if ($ads->where('position', 'sidebar 1')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
+                                </div>
+                            @endif
                             <!--widget start-->
                             <div class="widget">
                                 <h4>{{ __('Featured Videos') }}</h4>
@@ -88,6 +100,11 @@
                                 </div>
                             </div>
                             <!--widget end-->
+                            @if ($ads->where('position', 'sidebar 2')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!--Sidebar End-->

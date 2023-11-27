@@ -15,6 +15,13 @@
             <div class="player-squad">
                 <div class="container">
                     <div class="row">
+                        @if ($ads->where('position', 'top')->first())
+                            <div class="col-md-12 mb-10"> 
+                                <center>
+                                    {!! $ads->where('position', 'top')->first()->ad !!}
+                                </center>
+                            </div>
+                        @endif
                         <!--Fixture Start-->
                         <div class="col-lg-8">
                             <!--Mathes Grid-->
@@ -293,6 +300,13 @@
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
                             </div>
+
+                            @if ($ads->where('position', 'sidebar 1')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
+                                </div>
+                            @endif
+
                             <div class="h3-section-title"> <strong>{{ __('Trending News') }}</strong></div>
                             <div class="trending-news">
                                 @foreach ($news as $key => $item)
@@ -317,6 +331,11 @@
                                 @endforeach
 
                             </div>
+                            @if ($ads->where('position', 'sidebar 2')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
+                                </div>
+                            @endif
                             <div class="sidebar">
                                 <!--widget start-->
                                 <div class="widget">

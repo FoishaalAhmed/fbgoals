@@ -14,13 +14,11 @@ class Ad extends Model
     ];
 
     public static $validateRule = [
-        'position' => ['string', 'required', 'max:30'],
         'ad' => ['string', 'required'],
     ];
 
     public function updateAd(object $request, object $ad)
     {
-        $ad->position = $request->position;
         $ad->ad = $request->ad;
         $updateAd = $ad->save();
 
