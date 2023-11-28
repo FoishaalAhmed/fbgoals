@@ -188,12 +188,13 @@
                                 <!--widget start-->
                                 @include('front.upcomingMatch')
                                 <!--widget end-->
+                                @if ($ads->where('position', 'sidebar 1')->first())
+                                    <div class="widget">
+                                        {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
+                                    </div>
+                                @endif
                             </div>
-                            @if ($ads->where('position', 'sidebar 1')->first())
-                                <div class="widget">
-                                    {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
-                                </div>
-                            @endif
+                            
                             @if ($news->isNotEmpty())
                                 <div class="h3-section-title"> <strong>{{ __('Trending News') }}</strong></div>
                                 <div class="trending-news">
@@ -219,35 +220,36 @@
                                     @endforeach
                                 </div>
                             @endif
-                            @if ($ads->where('position', 'sidebar 2')->first())
-                                <div class="widget">
-                                    {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
-                                </div>
-                            @endif
-                            @if ($videos->isNotEmpty())
-                                <div class="sidebar">
-                                    <!--widget start-->
+                            
+                            <div class="sidebar">
+                                @if ($ads->where('position', 'sidebar 2')->first())
                                     <div class="widget">
-                                        <h4>{{ __('Featured Videos') }} </h4>
-                                        <div class="featured-video-widget">
-                                            @foreach ($videos as $item)
-                                                <div class="fvideo-box mb15">
-                                                    <div class="fvid-cap">
-                                                        <h5><a
-                                                                href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
-                                                        </h5>
-                                                        <span><i class="fe-clock"></i>
-                                                            {{ date('d M, Y', strtotime($item->date)) }} </span>
-                                                    </div>
-                                                    <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
-                                                        alt="">
-                                                </div>
-                                            @endforeach
-                                        </div>
+                                        {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
                                     </div>
-                                    <!--widget end-->
+                                @endif
+                                @if ($videos->isNotEmpty())
+                                <!--widget start-->
+                                <div class="widget">
+                                    <h4>{{ __('Featured Videos') }} </h4>
+                                    <div class="featured-video-widget">
+                                        @foreach ($videos as $item)
+                                            <div class="fvideo-box mb15">
+                                                <div class="fvid-cap">
+                                                    <h5><a
+                                                            href="https://www.youtube.com/watch?v=<?= $item->link ?>">{{ $item->title }}</a>
+                                                    </h5>
+                                                    <span><i class="fe-clock"></i>
+                                                        {{ date('d M, Y', strtotime($item->date)) }} </span>
+                                                </div>
+                                                <img src="https://img.youtube.com/vi/<?= $item->link ?>/1.jpg"
+                                                    alt="">
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
-                            @endif
+                                <!--widget end-->
+                                @endif
+                            </div>
                         </div>
                         <!--Sidebar End-->
                     </div>

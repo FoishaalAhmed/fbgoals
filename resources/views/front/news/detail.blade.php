@@ -36,12 +36,13 @@
                             <!--widget start-->
                             @include('front.upcomingMatch')
                             <!--widget end-->
+                            @if ($ads->where('position', 'sidebar 1')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
+                                </div>
+                            @endif
                         </div>
-                        @if ($ads->where('position', 'sidebar 1')->first())
-                            <div class="widget">
-                                {!! $ads->where('position', 'sidebar 1')->first()->ad !!}
-                            </div>
-                        @endif
+                        
                         <div class="h3-section-title"> <strong>{{ __('Trending News') }}</strong></div>
                         <div class="trending-news">
                             @foreach ($latestNews as $key => $item)
@@ -66,12 +67,13 @@
                             @endforeach
 
                         </div>
-                        @if ($ads->where('position', 'sidebar 2')->first())
-                            <div class="widget">
-                                {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
-                            </div>
-                        @endif
+                        
                         <div class="sidebar">
+                            @if ($ads->where('position', 'sidebar 2')->first())
+                                <div class="widget">
+                                    {!! $ads->where('position', 'sidebar 2')->first()->ad !!}
+                                </div>
+                            @endif
                             <!--widget start-->
                             <div class="widget">
                                 <h4>{{ __('Featured Videos') }} </h4>
