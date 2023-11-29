@@ -23,6 +23,8 @@
     <!--Rev Slider End-->
     <title>@yield('title')</title>
 
+    {!! settings('google_tracking') !!}
+
     @section('css')
         
     @show

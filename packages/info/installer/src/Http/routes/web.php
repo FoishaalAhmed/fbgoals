@@ -25,9 +25,9 @@ Route::group(['prefix' => 'installer', 'middleware' => ['web', 'installed'], 'as
     Route::get('finish', [FinalController::class,'finish'])->name('finish');
 });
 
-if (!env('INSTALL_APP_SECRET')) {
-    Route::match(array('GET', 'POST'), 'installer/verify-envento-purchase-code',[PermissionsController::class, 'verifyPurchaseCode'])->name('installers.verify.purchase');
-}
+
+Route::match(array('GET', 'POST'), 'installer/verify-envento-purchase-code',[PermissionsController::class, 'verifyPurchaseCode'])->name('installers.verify.purchase');
+
 
 Route::post('install/clear-cache', [PermissionsController::class, 'clearCache']);
 

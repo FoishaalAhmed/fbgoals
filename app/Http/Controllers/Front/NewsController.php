@@ -14,7 +14,7 @@ class NewsController extends Controller
     public function index()
     {
         $data = [
-            'news' => News::latest('date')->where('status', 1)->paginate(24),
+            'news' => News::latest('date')->where('status', 'Published')->paginate(24),
             'videos' => YoutubeVideo::latest('date')->take(5)->get()->toArray()
         ];
         (new Visitor())->storeVisitor();
@@ -25,7 +25,7 @@ class NewsController extends Controller
     {
         $data = [
             'news' => $news,
-            'latestNews' => News::where('status', 1)->latest('date')->take(5)->get(),
+            'latestNews' => News::where('status', 'Published')->latest('date')->take(5)->get(),
             'videos' => YoutubeVideo::latest('date')->take(5)->get()
         ];
         (new Visitor())->storeVisitor();
@@ -36,7 +36,7 @@ class NewsController extends Controller
     {
         $league = request()->league;
         $data = [
-            'news' => News::latest('date')->where('status', 1)->where('leagues', 'like', '%' . $league . '%')->select('id', 'photo', 'title', 'date')->paginate(24),
+            'news' => News::latest('date')->where('status', 'Published')->where('leagues', 'like', '%' . $league . '%')->select('id', 'photo', 'title', 'date')->paginate(24),
             'videos' => YoutubeVideo::latest('date')->where('leagues', 'like', '%' . $league . '%')->take(5)->get(['id', 'title', 'date', 'link'])->toArray()
         ];
 
@@ -48,7 +48,7 @@ class NewsController extends Controller
     {
         $team = request()->team;
         $data = [
-            'news' => News::latest('date')->where('status', 1)->where('teams', 'like', '%' . $team . '%')->select('id', 'photo', 'title', 'date')->paginate(30),
+            'news' => News::latest('date')->where('status', 'Published')->where('teams', 'like', '%' . $team . '%')->select('id', 'photo', 'title', 'date')->paginate(30),
             'videos' => YoutubeVideo::latest('date')->where('teams', 'like', '%' . $team . '%')->take(5)->get(['id', 'title', 'date', 'link'])
         ];
 

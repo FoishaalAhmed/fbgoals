@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('public/assets/backend/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('public/images/dummy/logo-sm.png') }}">
 
     <!-- Theme Config Js -->
     <script src="{{ asset('public/assets/backend/js/head.js') }}"></script>

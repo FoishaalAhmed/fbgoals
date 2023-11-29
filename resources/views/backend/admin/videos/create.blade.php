@@ -44,7 +44,9 @@
                             <div class="row">
                                 <div class="col-lg-12 mb-3">
                                     <label for="link" class="form-label">{{ __('Link') }} <small><i>- {{ __('only youtube link') }}</i></small> <span class="text-danger"> * </span></label>
-                                    <input type="text" name="link" id="link" class="form-control" placeholder="{{ __('Link') }}" required="" value="{{ old('link') }}">
+                                     <input type="text" class="form-control" placeholder="{{ __('Link') }}" name="showLink" id="show-link" value="{{ old('showLink') }}" required="" onkeyup="youtube_parser();">
+                                    
+                                    <input type="hidden" name="link" id="link" class="form-control" placeholder="{{ __('Link') }}" required="" value="{{ old('link') }}">
                                     @error('link')
                                         <div class="invalid-feedback error">
                                             {{ $message }}
@@ -73,4 +75,6 @@
 @section('js')
     <script src="{{ asset('public/assets/backend/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('public/assets/backend/js/pages/form-pickers.init.js') }}"></script>
+    <script src="{{ asset('public/assets/backend/js/custom/video.min.js') }}"></script> 
+
 @endsection

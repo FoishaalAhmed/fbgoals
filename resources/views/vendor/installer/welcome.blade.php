@@ -1,6 +1,6 @@
 @extends('vendor.installer.app')
 
-@section('title', __('Football'))
+@section('title', __('Football XT'))
 
 @section('content')
     <div class="row">

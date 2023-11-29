@@ -39,7 +39,7 @@
                                             <td>{{ $loop->index + 1 }}</td>
                                             <td>{{ date('d M, Y', strtotime($item->date)) }}</td>
                                             <td>{{ $item->title }} </td>
-                                            <td>{{ $item->link }} </td>
+                                            <td>{{ 'https://www.youtube.com/watch?v=' . $item->link }} </td>
                                             <td>
                                                 <a href="{{ route('admin.videos.edit', $item->id) }}"
                                                     class="btn btn-outline-success waves-effect waves-light"><i

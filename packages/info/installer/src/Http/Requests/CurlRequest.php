@@ -8,7 +8,7 @@ class CurlRequest implements CurlRequestInterface
 {
     public function send($data)
     {
-        $url = "http://localhost/v2";
+        $url = "https://enventoapi.tntsports.online/v2";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
